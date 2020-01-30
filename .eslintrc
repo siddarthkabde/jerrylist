@@ -276,7 +276,7 @@
 		"srm": false,
 		"equal": false,
 		"expect": false,
-		"jQuery": false,
+		"jQuery": true,
 		"publicservices": true,
 		"uxcc": false,
 		"equals": false,
