@@ -5,34 +5,17 @@
   "engines": {
     "node": "8.14.1"
   },
+  "main": "local.js",
   "scripts": {
-  	"start": "ui5 serve --accept-remote-connections true --port $PORT",
-    "lint": "eslint webapp",
-    "build": "rimraf dist && ui5 build --a"
-    
+    "start": "node --inspect local.js"
   },
   "dependencies": {
     "ejs": "^2.5.7",
-    "express": "^4.16.2",
-    "@openui5/sap.m": "^1.60.0",
-    "@openui5/sap.ui.core": "^1.60.0",
-    "@openui5/themelib_sap_belize": "^1.60.0",
-    "@ui5/cli": "^1.2.0",
-    "rimraf": "^2.6.2"
+    "express": "^4.16.2"
   },
   "devDependencies": {
     "request": "^2.81.0",
-    "tape": "^4.7.0",
-    "@ui5/cli": "^1.2.0",
-    "eslint": "^4.19.1",
-    "karma": "^4.0.0",
-    "karma-chrome-launcher": "^2.2.0",
-    "karma-coverage": "^1.1.2",
-    "karma-openui5": "^0.2.3",
-    "karma-qunit": "^1.2.1",
-    "qunitjs": "^2.4.1",
-    "rimraf": "^2.6.2",
-    "start-server-and-test": "^1.4.1"
+    "tape": "^4.7.0"
   },
   "repository": {
     "type": "git",
