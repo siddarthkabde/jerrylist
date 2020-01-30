@@ -7,11 +7,12 @@ app.use('/mindmap', express.static(path.join(__dirname, 'mindmap')));
 app.use('/module', express.static(path.join(__dirname, 'module')));
 app.get('/', function(req, res){
 	console.log("method in get/: " + req.method);
-    var qs = require('querystring');
-   res.send("Hello World - Testing Dear");
+   // var qs = require('querystring');
+   //res.send("Hello World - Testing Dear");
+   res.sendFile(path.join(webapp + '/index.html'));
 });
 
-app.post("/", function(req, res){
+app.post("/", function(/ui5, res){
 	var body = '';
 	const regex = /!\[(.*?)\]\((.*?)\)/g;
 	var m;
