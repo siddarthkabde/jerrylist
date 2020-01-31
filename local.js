@@ -7,9 +7,9 @@ app.use('/mindmap', express.static(path.join(__dirname, 'mindmap')));
 app.use('/module', express.static(path.join(__dirname, 'module')));
 app.get('/', function(req, res){
 	console.log("method in get/: " + req.method);
-    // var qs = require('querystring');
-    // res.send("Hello World - Testing Dear");
-   res.sendFile(__dirname + '/../webapp/index.html');
+    var qs = require('querystring');
+    res.send("Hello World - Testing Dear");
+   //res.sendFile(__dirname + '/../webapp/index.html');
 });
 
 app.post("/", function(/ui5, res){
