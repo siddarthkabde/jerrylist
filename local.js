@@ -8,11 +8,10 @@ app.use('/module', express.static(path.join(__dirname, 'module')));
 app.get('/', function(req, res){
 	console.log("method in get/: " + req.method);
     var qs = require('querystring');
-    res.send("Hello World - Testing Dear");
-   //res.sendFile(__dirname + '/../webapp/index.html');
+   res.send("Hello World");
 });
 
-app.post("/", function(/ui5, res){
+app.post("/", function(req, res){
 	var body = '';
 	const regex = /!\[(.*?)\]\((.*?)\)/g;
 	var m;
