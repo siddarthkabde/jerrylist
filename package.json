@@ -7,7 +7,7 @@
   },
   "main": "local.js",
   "scripts": {
-    "start": "node --inspect local.js"
+    "start": "node local.js"
   },
   "dependencies": {
     "ejs": "^2.5.7",
