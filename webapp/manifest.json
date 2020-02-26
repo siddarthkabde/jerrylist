@@ -1,7 +1,8 @@
 {
-	"_version": "1.5.0",
+	"_version": "1.1.0",
 	"sap.app": {
-		"id": "jerrylist",
+		"_version": "1.3.0",
+		"id": "ZIProfile",
 		"type": "application",
 		"i18n": "i18n/i18n.properties",
 		"applicationVersion": {
@@ -12,11 +13,22 @@
 		"resources": "resources.json",
 		"ach": "ach",
 		"sourceTemplate": {
-			"id": "ui5template.basicSAPUI5ApplicationProject",
-			"version": "1.40.12"
+			"id": "servicecatalog.connectivityComponent",
+			"version": "0.0.0"
+		},
+		"dataSources": {
+			"mainService": {
+				"type": "OData",
+				"settings": {
+					"odataVersion": "2.0",
+					"localUri": "localService/metadata.xml"
+				},
+				"uri": "localService/metadata.xml"
+			}
 		}
 	},
 	"sap.ui": {
+		"_version": "1.3.0",
 		"technology": "UI5",
 		"icons": {
 			"icon": "",
@@ -33,12 +45,13 @@
 		},
 		"supportedThemes": [
 			"sap_hcb",
-			"sap_belize"
+			"sap_bluecrystal"
 		]
 	},
 	"sap.ui5": {
+		"_version": "1.2.0",
 		"rootView": {
-			"viewName": "jerrylist.view.App",
+			"viewName": "ZIProfile.view.App",
 			"type": "XML"
 		},
 		"dependencies": {
@@ -46,11 +59,7 @@
 			"libs": {
 				"sap.ui.core": {},
 				"sap.m": {},
-				"sap.ui.layout": {},
-				"sap.ushell": {},
-				"sap.collaboration": {},
-				"sap.ui.comp": {},
-				"sap.uxap": {}
+				"sap.ui.layout": {}
 			}
 		},
 		"contentDensities": {
@@ -61,20 +70,49 @@
 			"i18n": {
 				"type": "sap.ui.model.resource.ResourceModel",
 				"settings": {
-					"bundleName": "jerrylist.i18n.i18n"
+					"bundleName": "ZIProfile.i18n.i18n"
 				}
+			},
+			"": {
+				"dataSource": "mainService"
 			}
 		},
 		"resources": {
-			"css": [
+			"css": [{
+				"uri": "css/style.css"
+			}],
+			"js": [{
+				"uri": "/util/xlsx.js"
+			}]
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"viewType": "XML",
+				"async": true,
+				"viewPath": "ZIProfile.view",
+				"controlAggregation": "pages",
+				"controlId": "AppControl"
+			},
+			"routes": [
 				{
-					"uri": "css/style.css"
+					"name": "profile",
+					"pattern": "",
+					"target": "profile"
 				}
-			]
+			],
+			"targets": {
+				"profile": {
+					"viewId": "profile",
+					"viewName": "Profile",
+					"transition": "slide",
+					"viewLevel": 1
+				}
+			}
 		}
 	},
 	"sap.platform.hcp": {
 		"uri": "webapp",
-		"_version": "1.1.0"
+		"_version": "1.2.0"
 	}
 }
