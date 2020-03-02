@@ -1,3 +1,4 @@
+var XL_row_object;
 sap.ui.define([
 	"./BaseController"
 ], function (BaseController) {
@@ -20,6 +21,21 @@ sap.ui.define([
 
 		handleUploadPress: function () {
 			var oEntry1 = this.mapoEntry1();
+
+			var oModel = new sap.ui.model.json.JSONModel();
+			var aData = jQuery.ajax({
+				type: "GET",
+				contentType: "application/json",
+				url: "/loyoladb",
+				dataType: "json",
+				async: false,
+				success: function (data, textStatus, jqXHR) {
+					oModel.setData({
+						modelData: data
+					});
+				}
+			});
+
 		},
 
 		// function to upload the data form the file into the table.
@@ -48,7 +64,7 @@ sap.ui.define([
 								return;
 							}
 
-							var XL_row_object = XLSX.utils.sheet_to_row_object_array(workbook.Sheets[sheetName]);
+							XL_row_object = XLSX.utils.sheet_to_row_object_array(workbook.Sheets[sheetName]);
 							var finalArr = XL_row_object.filter(function (val) {
 								// return val.Agrmnt No. != "";
 								if (!val.Name) {
