@@ -1,0 +1,26 @@
+{
+  "Contacts": [
+    {
+      "_id": 1,
+      "firstName": "Matthew",
+      "lastName": "Murdoc",
+      "address": {
+        "street": "Coffee Avenue",
+        "houseNumber": 13,
+        "postalCode": "66778",
+        "city": "Hell's Kitchen"
+      }
+    },
+    {
+      "_id": 2,
+      "firstName": "Bruce",
+      "lastName": "Wayne",
+      "address": {
+        "street": "Tea Street",
+        "houseNumber": 25,
+        "postalCode": "11223",
+        "city": "Gotham"
+      }
+    }
+  ]
+}

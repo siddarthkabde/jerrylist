@@ -1,34 +1,26 @@
 sap.ui.define([
 	"sap/ui/core/UIComponent",
-	"sap/ui/Device",
-	"ZIProfile/model/models"
-], function(UIComponent, Device, models) {
+	"sap/ui/model/json/JSONModel"
+], function(UIComponent, JSONModel){
 	"use strict";
 
-	return UIComponent.extend("ZIProfile.Component", {
-
-		metadata: {
+	return UIComponent.extend("jerrylist.Component",{
+		metadata:{
 			manifest: "json"
 		},
 
-		/**
-		 * The component is initialized by UI5 automatically during the startup of the app and calls the init method once.
-		 * @public
-		 * @override
-		 */
-		init: function() {
-			// call the base component's init function
+		init: function(){
+			//Init of superclass
 			UIComponent.prototype.init.apply(this, arguments);
 
-			// enable routing
-			var oRouter = this.getRouter();
-			if (oRouter) {
-				oRouter.initialize();
-			}
+			//Initialize router
+			this.getRouter().initialize();
 
-			// set the device model
-			this.setModel(models.createDeviceModel(), "device");
+			//Set a model
+			var oModel = new JSONModel();
+			oModel.loadData("model/mock.json", {}, false);
+			this.setModel(oModel);
+
 		}
 	});
-
 });

@@ -1,118 +1,78 @@
 {
 	"_version": "1.1.0",
 	"sap.app": {
-		"_version": "1.3.0",
-		"id": "ZIProfile",
-		"type": "application",
+		"_version": "1.1.0",
+		"id": "jerrylist",
+		"type": "component",
 		"i18n": "i18n/i18n.properties",
+		"title": "{{AppTitle}}",
+		"description": "{{AppDescription}}",
 		"applicationVersion": {
 			"version": "1.0.0"
 		},
-		"title": "{{appTitle}}",
-		"description": "{{appDescription}}",
-		"resources": "resources.json",
-		"ach": "ach",
-		"sourceTemplate": {
-			"id": "servicecatalog.connectivityComponent",
-			"version": "0.0.0"
-		},
-		"dataSources": {
-			"mainService": {
-				"type": "OData",
-				"settings": {
-					"odataVersion": "2.0",
-					"localUri": "localService/metadata.xml"
-				},
-				"uri": "localService/metadata.xml"
-			}
-		}
+		"ach": "CA-UI5-DOC",
+		"dataSources": {  }
 	},
 	"sap.ui": {
-		"_version": "1.3.0",
+		"_version": "1.1.0",
 		"technology": "UI5",
-		"icons": {
-			"icon": "",
-			"favIcon": "",
-			"phone": "",
-			"phone@2": "",
-			"tablet": "",
-			"tablet@2": ""
-		},
 		"deviceTypes": {
 			"desktop": true,
 			"tablet": true,
-			"phone": true
+			"phone": false
 		},
-		"supportedThemes": [
-			"sap_hcb",
-			"sap_bluecrystal"
-		]
+		"supportedThemes": ["sap_bluecrystal"]
 	},
+
 	"sap.ui5": {
-		"_version": "1.2.0",
-		"rootView": {
-			"viewName": "ZIProfile.view.App",
-			"type": "XML"
-		},
+		"_version": "1.1.0",
+		"rootView": "jerrylist.view.App",
 		"dependencies": {
 			"minUI5Version": "1.30.0",
 			"libs": {
-				"sap.ui.core": {},
-				"sap.m": {},
-				"sap.ui.layout": {}
+				"sap.m": {
+					"minVersion": "1.30.0"
+				}
 			}
-		},
-		"contentDensities": {
-			"compact": true,
-			"cozy": true
 		},
 		"models": {
 			"i18n": {
 				"type": "sap.ui.model.resource.ResourceModel",
-				"settings": {
-					"bundleName": "ZIProfile.i18n.i18n"
+				"settings":{
+					"bundleName": "jerrylist.i18n.i18n"
 				}
-			},
-			"": {
-				"dataSource": "mainService"
 			}
 		},
-		"resources": {
-			"css": [{
-				"uri": "css/style.css"
-			}],
-			"js": [{
-				"uri": "/util/xlsx.js"
-			}]
-		},
-		"routing": {
-			"config": {
+		"routing":{
+			"config":{
 				"routerClass": "sap.m.routing.Router",
 				"viewType": "XML",
-				"async": true,
-				"viewPath": "ZIProfile.view",
-				"controlAggregation": "pages",
-				"controlId": "AppControl"
+				"viewPath": "jerrylist.view",
+				"controlId": "app"
 			},
-			"routes": [
-				{
-					"name": "profile",
-					"pattern": "",
-					"target": "profile"
-				}
-			],
-			"targets": {
-				"profile": {
-					"viewId": "profile",
-					"viewName": "Profile",
-					"transition": "slide",
-					"viewLevel": 1
+			"routes":[{
+				"pattern":"",
+				"name":"home",
+				"target":["master", "emptyView"]
+			},{
+				"pattern":"contact/{contactId}",
+				"name": "contactdetail",
+				"target": ["master", "detail"]
+				}],
+			"targets":{
+				"master":{
+					"viewName": "Master",
+					"controlAggregation": "masterPages"
+				},
+				"emptyView":{
+					"viewName": "EmptyView",
+					"controlAggregation": "detailPages"
+				},
+				"detail":{
+					"viewName": "Detail",
+					"controlAggregation": "detailPages"
 				}
 			}
 		}
-	},
-	"sap.platform.hcp": {
-		"uri": "webapp",
-		"_version": "1.2.0"
 	}
 }

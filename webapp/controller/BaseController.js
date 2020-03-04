@@ -1,14 +1,23 @@
 sap.ui.define([
 	"sap/ui/core/mvc/Controller",
 	"sap/ui/core/routing/History"
-], function (Controller, History) {
+], function(Controller, History){
 	"use strict";
-	return Controller.extend("ZIProfile.controller.BaseController", {
-		getRouter : function () {
+
+	return Controller.extend("jerrylist.controller.BaseController", {
+		getRouter: function(){
 			return sap.ui.core.UIComponent.getRouterFor(this);
 		},
-		onNavBack: function (oEvent) {
 
+		onNavBack: function(oEvent){
+			var oHistory = History.getInstance();
+			var sPreviousHash = oHistory.getPreviousHash();
+
+			if (sPreviousHash !== undefined) {
+				window.history.go(-1);
+			} else {
+				this.getRouter().navTo("start", {}, true);
+			}
 		}
 	});
 });
