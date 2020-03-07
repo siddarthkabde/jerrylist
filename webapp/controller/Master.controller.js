@@ -1,9 +1,9 @@
 sap.ui.define([
-	"jerrylist/controller/BaseController",
+	"nl/newitera/markdevlieger/contactlist/controller/BaseController",
 	"sap/ui/model/json/JSONModel"
 ], function(BaseController, JSONModel){
 	"use strict";
-	return BaseController.extend("jerrylist.controller.Master",{
+	return BaseController.extend("nl.newitera.markdevlieger.contactlist.controller.Master",{
 		onInit: function(oEvent){
 			//Set model
 			var oModel = new JSONModel();

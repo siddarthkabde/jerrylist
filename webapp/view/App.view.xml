@@ -1,5 +1,5 @@
 <mvc:View
-	controllerName="jerrylist.controller.App"
+	controllerName="nl.newitera.markdevlieger.contactlist.controller.App"
 	xmlns="sap.m"
 	xmlns:mvc="sap.ui.core.mvc">
 	<SplitApp id="app" />

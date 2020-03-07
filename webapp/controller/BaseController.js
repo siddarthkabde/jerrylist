@@ -4,7 +4,7 @@ sap.ui.define([
 ], function(Controller, History){
 	"use strict";
 
-	return Controller.extend("jerrylist.controller.BaseController", {
+	return Controller.extend("nl.newitera.markdevlieger.contactlist.controller.BaseController", {
 		getRouter: function(){
 			return sap.ui.core.UIComponent.getRouterFor(this);
 		},

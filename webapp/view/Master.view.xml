@@ -1,5 +1,5 @@
 <mvc:View
-	controllerName="jerrylist.controller.Master"
+	controllerName="nl.newitera.markdevlieger.contactlist.controller.Master"
 	xmlns="sap.m"
 	xmlns:mvc="sap.ui.core.mvc">
 	<Page

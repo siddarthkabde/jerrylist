@@ -1,9 +1,9 @@
 sap.ui.define([
-	"jerrylist/controller/BaseController",
+	"nl/newitera/markdevlieger/contactlist/controller/BaseController",
 	"sap/ui/model/json/JSONModel"
 ], function(BaseController, JSONModel){
 	"use strict";
-	return BaseController.extend("jerrylist.controller.Detail",{
+	return BaseController.extend("nl.newitera.markdevlieger.contactlist.controller.Detail",{
 		onInit: function(){
 			var oRouter = this.getRouter();
 			oRouter.getRoute("contactdetail").attachMatched(this._onRouteMatched, this);
@@ -124,7 +124,7 @@ sap.ui.define([
 		_setFragment: function(sFragment){
 			var oPage = this.getView().byId("page");
 			oPage.removeAllContent();
-			oPage.insertContent(sap.ui.xmlfragment( this.getView().getId(), "jerrylist.view." + sFragment) );
+			oPage.insertContent(sap.ui.xmlfragment( this.getView().getId(), "nl.newitera.markdevlieger.contactlist.view." + sFragment) );
 		}
 	});
 });

@@ -1,6 +1,6 @@
 sap.ui.define([
-	"jerrylist/controller/BaseController"
+	"nl/newitera/markdevlieger/contactlist/controller/BaseController"
 ], function(BaseController){
 	"use strict";
-	return BaseController.extend("jerrylist.controller.App",{});
+	return BaseController.extend("nl.newitera.markdevlieger.contactlist.controller.App",{});
 });
