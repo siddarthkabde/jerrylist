@@ -22,7 +22,7 @@ sap.ui.define([
 				"/service/contactlistDb/saveContact",			//sURL
 				this.getView().getModel("Detail").getData(),	//oParameters
 				false,											//bAsync
-				'POST'											//sType
+				"POST"											//sType
 				);
 			//Reload Master model, in case of an insert/change in Name
 			this.getOwnerComponent().getModel("Master").loadData("/service/contactlistDb/contactlist", {}, false);
@@ -45,7 +45,7 @@ sap.ui.define([
 				"/service/contactlistDb/deleteContact",			//sURL
 				this.getView().getModel("Detail").getData(),	//oParameters
 				false,											//bAsync
-				'POST'											//sType
+				"POST"											//sType
 				);
 			//Reload Master model, in case of an insert/change in Name
 			this.getOwnerComponent().getModel("Master").loadData("/service/contactlistDb/contactlist", {}, false);
