@@ -1,21 +1,30 @@
 {
-	"name": "openui5test1",
-	"version": "0.3.0",
-	"description": "Test for OpenUI5 on express",
-	"engines": {
-		"node": "12.x"
-	},
-	"main": "server.js",
-	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1",
-		"start": "node server.js"
-	},
-	"dependencies": {
-		"body-parser": "^1.15.0",
-		"express": "^4.13.4",
-		"mongodb": "^2.1.18",
-		"mongoose": "^4.0.6"
-	},
-	"author": "",
-	"license": "MIT"
+  "name": "jerrylist",
+  "version": "0.3.0",
+  "description": "A demo to host your UI5 application in Heroku",
+  "engines": {
+    "node": "8.9.1"
+  },
+  "main": "local.js",
+  "scripts": {
+    "start": "node local.js"
+  },
+  "dependencies": {
+    "ejs": "^2.5.7",
+    "express": "^4.16.2"
+  },
+  "devDependencies": {
+    "request": "^2.81.0",
+    "tape": "^4.7.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/i042416/jerrylist"
+  },
+  "keywords": [
+    "node",
+    "heroku",
+    "express"
+  ],
+  "license": "MIT"
 }

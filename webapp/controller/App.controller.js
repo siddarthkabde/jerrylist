@@ -1,6 +1,17 @@
 sap.ui.define([
-	"nl/newitera/markdevlieger/contactlist/controller/BaseController"
-], function(BaseController){
+	"./BaseController"
+], function(BaseController) {
 	"use strict";
-	return BaseController.extend("nl.newitera.markdevlieger.contactlist.controller.App",{});
+
+	return BaseController.extend("ZIProfile.controller.App", {
+
+		
+		onOpenDialog: function() {
+			this.getOwnerComponent().helloDialog.open(this.getView());
+		}
+
+	
+
+	});
+
 });
