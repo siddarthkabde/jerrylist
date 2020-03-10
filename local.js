@@ -29,11 +29,11 @@ var dbName = 'heroku_rwk1pgjs';
 // Create a new MongoClient
 var client = new MongoClient(url);
 
-mongoose.connect(uristring, function (err, res) {
+mongoose.connect(uristring1, function (err, res) {
   if (err) { 
-    console.log ('ERROR connecting to: ' + uristring + '. ' + err);
+    console.log ('ERROR connecting to: ' + uristring1 + '. ' + err);
   } else {
-    console.log ('Succeeded connected to: ' + uristring);
+    console.log ('Succeeded connected to: ' + uristring1);
   }
 });
 
