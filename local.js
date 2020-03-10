@@ -2,6 +2,7 @@ var path = require('path'),
 	express = require('express');
 var qs = require('querystring');
 var app = express();
+var MongoClient = require('mongodb').MongoClient;
 app.use('/ui5', express.static(path.join(__dirname, 'webapp')));
 app.use('/wt', express.static(path.join(__dirname, 'walkthrough')));
 app.use('/mindmap', express.static(path.join(__dirname, 'mindmap')));
