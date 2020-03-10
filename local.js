@@ -38,6 +38,8 @@ MongoClient.connect(process.env.MONGODB_URI, function (err, database) {
   });
 });
 
+	app.use("/service/contactlistDb", contactlistDb);
+
 // app.post("/", function (req, res) {
 // 	var body = '';
 // 	var regex = /!\[(.*?)\]\((.*?)\)/g;

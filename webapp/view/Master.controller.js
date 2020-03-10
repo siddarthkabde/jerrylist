@@ -1,6 +1,13 @@
 jQuery.sap.require("jerrylist.util.Formatter");
 jQuery.sap.require("jerrylist.util.Grouper");
 sap.ui.controller("jerrylist.view.Master", {
+	
+	onInit : function (evt) {
+		var oModel = new sap.ui.model.json.JSONModel();
+		oModel.loadData("/service/contactlistDb/contactlist", {}, false);
+		var test;
+		
+	},
 
 	handleListItemPress : function (evt) {
 		console.error("Jerry clicks list item");
