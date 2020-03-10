@@ -3,11 +3,11 @@
   "version": "0.3.0",
   "description": "A demo to host your UI5 application in Heroku",
   "engines": {
-    "node": "8.9.1"
+    "node": "8.14.1"
   },
   "main": "local.js",
   "scripts": {
-    "start": "node local.js"
+    "start": "node --inspect local.js"
   },
   "dependencies": {
     "ejs": "^2.5.7",
