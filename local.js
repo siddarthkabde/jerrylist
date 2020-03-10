@@ -23,22 +23,22 @@ var dbName = 'heroku_rwk1pgjs';
 // Create a new MongoClient
 var client = new MongoClient(url);
 
-// MongoClient.connect(process.env.MONGODB_URI, function (err, database) {
-//   if (err) {
-//     console.log(err);
-//     process.exit(1);
-//   }
+MongoClient.connect(url, function (err, client) {
+  if (err) {
+    console.log(err);
+    process.exit(1);
+  }
 
-//   // Save database object from the callback for reuse.
-//   db = database;
-//   console.log("Database connection ready");
+  // Save database object from the callback for reuse.
+  db = client.db();
+  console.log("Database connection ready");
 
-//   // Initialize the app.
-//   var server = app.listen(process.env.PORT || 8080, function () {
-//     var port = server.address().port;
-//     console.log("App now running on port", port);
-//   });
-// });
+  // Initialize the app.
+  var server = app.listen(process.env.PORT || 8080, function () {
+    var port = server.address().port;
+    console.log("App now running on port", port);
+  });
+});
 
 // 	app.use("/service/contactlistDb", contactlistDb);
 
