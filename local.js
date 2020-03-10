@@ -13,41 +13,66 @@ app.get('/', function (req, res) {
 	res.send("Hello World");
 });
 
-app.post("/", function (req, res) {
-	var body = '';
-	const regex = /!\[(.*?)\]\((.*?)\)/g;
-	var m;
-	var printResult = (array) => {
-		var aResult = [];
-		var url = array[2];
-		var splited = url.split(".");
-		var oResult = {
-			"localFile": array[1] + "." + splited[splited.length - 1],
-			"fileUrl": url
-		};
-		aResult.push(oResult);
-		return aResult;
-	};
-	req.on('data', function (data) {
-		body += data;
-		if (body.length > 1e6)
-			request.connection.destroy();
-	});
+var assert = require('assert');
+// Connection URL
+var url = "mongodb://loyola_bdn:D9966cc@n1@ds149616.mlab.com:49616/heroku_rwk1pgjs";
+// Database Name
+var dbName = 'heroku_rwk1pgjs';
+// Create a new MongoClient
+var client = new MongoClient(url);
 
-	req.on('end', function () {
-		var post = qs.parse(body);
-		var aResult = [];
-		// res.send("your request is: " + post.markdown_source);
-		while ((m = regex.exec(post.markdown_source)) !== null) {
-			if (m.index === regex.lastIndex) {
-				regex.lastIndex++;
-			}
-			aResult = aResult.concat(printResult(m));
-		}
-		console.log(aResult);
-		res.json(aResult);
-	});
+MongoClient.connect(process.env.MONGODB_URI, function (err, database) {
+  if (err) {
+    console.log(err);
+    process.exit(1);
+  }
+
+  // Save database object from the callback for reuse.
+  db = database;
+  console.log("Database connection ready");
+
+  // Initialize the app.
+  var server = app.listen(process.env.PORT || 8080, function () {
+    var port = server.address().port;
+    console.log("App now running on port", port);
+  });
 });
-app.listen(process.env.PORT || 3000, function () {
-	console.log("Example app listens on port 3000.");
-});
+
+// app.post("/", function (req, res) {
+// 	var body = '';
+// 	var regex = /!\[(.*?)\]\((.*?)\)/g;
+// 	var m;
+// 	var printResult = (array) => {
+// 		var aResult = [];
+// 		var url = array[2];
+// 		var splited = url.split(".");
+// 		var oResult = {
+// 			"localFile": array[1] + "." + splited[splited.length - 1],
+// 			"fileUrl": url
+// 		};
+// 		aResult.push(oResult);
+// 		return aResult;
+// 	};
+// 	req.on('data', function (data) {
+// 		body += data;
+// 		if (body.length > 1e6)
+// 			request.connection.destroy();
+// 	});
+
+// 	req.on('end', function () {
+// 		var post = qs.parse(body);
+// 		var aResult = [];
+// 		// res.send("your request is: " + post.markdown_source);
+// 		while ((m = regex.exec(post.markdown_source)) !== null) {
+// 			if (m.index === regex.lastIndex) {
+// 				regex.lastIndex++;
+// 			}
+// 			aResult = aResult.concat(printResult(m));
+// 		}
+// 		console.log(aResult);
+// 		res.json(aResult);
+// 	});
+// });
+// app.listen(process.env.PORT || 3000, function () {
+// 	console.log("Example app listens on port 3000.");
+// });
