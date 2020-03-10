@@ -9,6 +9,8 @@ app.use('/mindmap', express.static(path.join(__dirname, 'mindmap')));
 app.use('/module', express.static(path.join(__dirname, 'module')));
 app.use('/service', express.static(path.join(__dirname, 'service')));
 
+var mongoose = require("mongoose");
+
 app.get('/', function (req, res) {
 	console.log("method in get/: " + req.method);
 	var qs = require('querystring');
@@ -16,29 +18,41 @@ app.get('/', function (req, res) {
 });
 
 var assert = require('assert');
+
+var uristring1 =
+	process.env.MONGODB_URI ||
+	'mongodb://localhost/HelloMongoose';
 // Connection URL
-var url = "mongodb://loyola_bdn:D9966cc@n1@ds149616.mlab.com:49616/heroku_rwk1pgjs";
+var uristring = "mongodb://loyola_bdn:D9966cc@n1@ds149616.mlab.com:49616/heroku_rwk1pgjs";
 // Database Name
 var dbName = 'heroku_rwk1pgjs';
 // Create a new MongoClient
 var client = new MongoClient(url);
 
-MongoClient.connect(url, function (err, client) {
-  if (err) {
-    console.log(err);
-    process.exit(1);
+mongoose.connect(uristring, function (err, res) {
+  if (err) { 
+    console.log ('ERROR connecting to: ' + uristring + '. ' + err);
+  } else {
+    console.log ('Succeeded connected to: ' + uristring);
   }
-
-  // Save database object from the callback for reuse.
-  db = client.db();
-  console.log("Database connection ready");
-
-  // Initialize the app.
-  var server = app.listen(process.env.PORT || 8080, function () {
-    var port = server.address().port;
-    console.log("App now running on port", port);
-  });
 });
+
+// MongoClient.connect(url, function (err, client) {
+//   if (err) {
+//     console.log(err);
+//     process.exit(1);
+//   }
+
+//   // Save database object from the callback for reuse.
+//   db = client.db();
+//   console.log("Database connection ready");
+
+//   // Initialize the app.
+//   var server = app.listen(process.env.PORT || 8080, function () {
+//     var port = server.address().port;
+//     console.log("App now running on port", port); 
+//   });
+// });
 
 // 	app.use("/service/contactlistDb", contactlistDb);
 
