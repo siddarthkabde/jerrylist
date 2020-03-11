@@ -23,9 +23,9 @@ var uristring1 =
 	process.env.MONGODB_URI ||
 	'mongodb://localhost/HelloMongoose';
 // Connection URL
-var uristring = "mongodb://loyola_bdn:D9966cc@n1@ds149616.mlab.com:49616/heroku_rwk1pgjs";
+// var uristring = "mongodb://loyola_bdn:D9966cc@n1@ds149616.mlab.com:49616/heroku_rwk1pgjs";
 // Database Name
-var dbName = 'heroku_rwk1pgjs';
+// var dbName = 'heroku_rwk1pgjs';
 // Create a new MongoClient
 var client = new MongoClient(url);
 
@@ -95,6 +95,6 @@ mongoose.connect(uristring1, function (err, res) {
 // 		res.json(aResult);
 // 	});
 // });
-// app.listen(process.env.PORT || 3000, function () {
-// 	console.log("Example app listens on port 3000.");
-// });
+app.listen(theport, function () {
+	// console.log("Example app listens on port 3000.");
+});
