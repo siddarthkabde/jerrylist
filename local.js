@@ -34,13 +34,13 @@ var client = new MongoClient(url);
 // port 5000.
 var theport = process.env.PORT || 5000;
 
-mongoose.connect(uristring1, function (err, res) {
-	if (err) {
-		// console.log ('ERROR connecting to: ' + uristring1 + '. ' + err);
-	} else {
-		// console.log ('Succeeded connected to: ' + uristring1);
-	}
-});
+// mongoose.connect(uristring1, function (err, res) {
+// 	if (err) {
+// 		// console.log ('ERROR connecting to: ' + uristring1 + '. ' + err);
+// 	} else {
+// 		// console.log ('Succeeded connected to: ' + uristring1);
+// 	}
+// });
 
 // MongoClient.connect(url, function (err, client) {
 //   if (err) {
