@@ -1,38 +1,203 @@
-var path = require('path'),
-	express = require('express');
-var qs = require('querystring');
-var app = express();
-var MongoClient = require('mongodb').MongoClient;
-app.use('/ui5', express.static(path.join(__dirname, 'webapp')));
-app.use('/wt', express.static(path.join(__dirname, 'walkthrough')));
-app.use('/mindmap', express.static(path.join(__dirname, 'mindmap')));
-app.use('/module', express.static(path.join(__dirname, 'module')));
-app.use('/service', express.static(path.join(__dirname, 'service')));
 
-var mongoose = require("mongoose");
+//
+// hello-mongoose: MongoDB with Mongoose on Node.js example on Heroku.
+// Mongoose is a object/data mapping utility for the MongoDB database.
+//
 
-app.get('/', function (req, res) {
-	// console.log("method in get/: " + req.method);
-	var qs = require('querystring');
-	res.send("Hello World");
-});
+// by Ben Wen with thanks to Aaron Heckmann
 
-var assert = require('assert');
+//
+// Copyright 2015 ObjectLabs Corp.  
+// ObjectLabs operates MongoLab.com a MongoDb-as-a-Service offering
+//
+// MIT Licensed
+//
 
-var uristring1 =
-	process.env.MONGODB_URI ||
-	'mongodb://localhost/HelloMongoose';
-// Connection URL
-// var uristring = "mongodb://loyola_bdn:D9966cc@n1@ds149616.mlab.com:49616/heroku_rwk1pgjs";
-// Database Name
-// var dbName = 'heroku_rwk1pgjs';
-// Create a new MongoClient
-var client = new MongoClient(url);
+// Permission is hereby granted, free of charge, to any person
+// obtaining a copy of this software and associated documentation files
+// (the "Software"), to deal in the Software without restriction,
+// including without limitation the rights to use, copy, modify, merge,
+// publish, distribute, sublicense, and/or sell copies of the Software,
+// and to permit persons to whom the Software is furnished to do so,
+// subject to the following conditions:  
 
+// The above copyright notice and this permission notice shall be
+// included in all copies or substantial portions of the Software. 
+
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+// EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+// MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+// NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS
+// BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN
+// ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+// CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+// SOFTWARE. 
+
+//
+// Preamble
+var http = require ('http');	     // For serving a basic web page.
+var mongoose = require ("mongoose"); // The reason for this demo.
+
+// Here we find an appropriate database to connect to, defaulting to
+// localhost if we don't find one.  
+var uristring = 
+  process.env.MONGODB_URI || 
+  'mongodb://localhost/HelloMongoose';
 
 // The http server will listen to an appropriate port, or default to
 // port 5000.
 var theport = process.env.PORT || 5000;
+
+// Makes connection asynchronously.  Mongoose will queue up database
+// operations and release them when the connection is complete.
+mongoose.connect(uristring, function (err, res) {
+  if (err) { 
+    console.log ('ERROR connecting to: ' + uristring + '. ' + err);
+  } else {
+    console.log ('Succeeded connected to: ' + uristring);
+  }
+});
+
+// This is the schema.  Note the types, validation and trim
+// statements.  They enforce useful constraints on the data.
+// var userSchema = new mongoose.Schema({
+//   name: {
+//     first: String,
+//     last: { type: String, trim: true }
+//   },
+//   age: { type: Number, min: 0}
+// });
+
+// Compiles the schema into a model, opening (or creating, if
+// nonexistent) the 'PowerUsers' collection in the MongoDB database
+// var PUser = mongoose.model('PowerUsers', userSchema);
+
+// // Clear out old data
+// PUser.remove({}, function(err) {
+//   if (err) {
+//     console.log ('error deleting old data.');
+//   }
+// });
+
+// // Creating one user.
+// var johndoe = new PUser ({
+//   name: { first: 'John', last: 'Doe' },
+//   age: 25
+// });
+
+// Saving it to the database.  
+// johndoe.save(function (err) {if (err) console.log ('Error on save!')});
+
+// Creating more users manually
+// var janedoe = new PUser ({
+//   name: { first: 'Jane', last: 'Doe' },
+//   age: 65
+// });
+// janedoe.save(function (err) {if (err) console.log ('Error on save!')});
+
+// // Creating more users manually
+// var alicesmith = new PUser ({
+//   name: { first: 'Alice', last: 'Smith' },
+//   age: 45
+// });
+// alicesmith.save(function (err) {if (err) console.log ('Error on save!')});
+
+
+// In case the browser connects before the database is connected, the
+// user will see this message.
+// var found = ['DB Connection not yet established.  Try again later.  Check the console output for error messages if this persists.'];
+
+// Create a rudimentary http server.  (Note, a real web application
+// would use a complete web framework and router like express.js). 
+// This is effectively the main interaction loop for the application. 
+// As new http requests arrive, the callback function gets invoked.
+http.createServer(function (req, res) {
+  res.writeHead(200, {'Content-Type': 'text/html'});
+  createWebpage(req, res);
+}).listen(theport);
+
+// function createWebpage (req, res) {
+//   // Let's find all the documents
+//   PUser.find({}).exec(function(err, result) { 
+//     if (!err) { 
+//       res.write(html1 + JSON.stringify(result, undefined, 2) +  html2 + result.length + html3);
+//       // Let's see if there are any senior citizens (older than 64) with the last name Doe using the query constructor
+//       var query = PUser.find({'name.last': 'Doe'}); // (ok in this example, it's all entries)
+//       query.where('age').gt(64);
+//       query.exec(function(err, result) {
+// 	if (!err) {
+// 	  res.end(html4 + JSON.stringify(result, undefined, 2) + html5 + result.length + html6);
+// 	} else {
+// 	  res.end('Error in second query. ' + err)
+// 	}
+//       });
+//     } else {
+//       res.end('Error in first query. ' + err)
+//     };
+//   });
+// }
+
+// Tell the console we're getting ready.
+// The listener in http.createServer should still be active after these messages are emitted.
+// console.log('http server will be listening on port %d', theport);
+// console.log('CTRL+C to exit');
+
+//
+// House keeping.
+
+//
+// The rudimentary HTML content in three pieces.
+// var html1 = '<title> hello-mongoose: MongoLab MongoDB Mongoose Node.js Demo on Heroku </title> \
+// <head> \
+// <style> body {color: #394a5f; font-family: sans-serif} </style> \
+// </head> \
+// <body> \
+// <h1> hello-mongoose: MongoLab MongoDB Mongoose Node.js Demo on Heroku </h1> \
+// See the <a href="https://devcenter.heroku.com/articles/nodejs-mongoose">supporting article on the Dev Center</a> to learn more about data modeling with Mongoose. \
+// <br\> \
+// <br\> \
+// <br\> <h2> All Documents in MonogoDB database </h2> <pre><code> ';
+// var html2 = '</code></pre> <br\> <i>';
+// var html3 = ' documents. </i> <br\> <br\>';
+// var html4 = '<h2> Queried (name.last = "Doe", age >64) Documents in MonogoDB database </h2> <pre><code> ';
+// var html5 = '</code></pre> <br\> <i>';
+// var html6 = ' documents. </i> <br\> <br\> \
+// <br\> <br\> <center><i> Demo code available at <a href="http://github.com/mongolab/hello-mongoose">github.com</a> </i></center>';
+
+// var path = require('path'),
+// 	express = require('express');
+// var qs = require('querystring');
+// var app = express();
+// var MongoClient = require('mongodb').MongoClient;
+// app.use('/ui5', express.static(path.join(__dirname, 'webapp')));
+// app.use('/wt', express.static(path.join(__dirname, 'walkthrough')));
+// app.use('/mindmap', express.static(path.join(__dirname, 'mindmap')));
+// app.use('/module', express.static(path.join(__dirname, 'module')));
+// app.use('/service', express.static(path.join(__dirname, 'service')));
+
+// var mongoose = require("mongoose");
+
+// app.get('/', function (req, res) {
+// 	// console.log("method in get/: " + req.method);
+// 	var qs = require('querystring');
+// 	res.send("Hello World");
+// });
+
+// var assert = require('assert');
+
+// var uristring1 =
+// 	process.env.MONGODB_URI ||
+// 	'mongodb://localhost/HelloMongoose';
+// // Connection URL
+// // var uristring = "mongodb://loyola_bdn:D9966cc@n1@ds149616.mlab.com:49616/heroku_rwk1pgjs";
+// // Database Name
+// // var dbName = 'heroku_rwk1pgjs';
+// // Create a new MongoClient
+// var client = new MongoClient(url);zzz
+
+// // The http server will listen to an appropriate port, or default to
+// // port 5000.
+// var theport = process.env.PORT || 5000;
 
 // mongoose.connect(uristring1, function (err, res) {
 // 	if (err) {
@@ -42,60 +207,60 @@ var theport = process.env.PORT || 5000;
 // 	}
 // });
 
-// MongoClient.connect(url, function (err, client) {
-//   if (err) {
-//     console.log(err);
-//     process.exit(1);
-//   }
+// // MongoClient.connect(url, function (err, client) {
+// //   if (err) {
+// //     console.log(err);
+// //     process.exit(1);
+// //   }
 
-//   // Save database object from the callback for reuse.
-//   db = client.db();
-//   console.log("Database connection ready");
+// //   // Save database object from the callback for reuse.
+// //   db = client.db();
+// //   console.log("Database connection ready");
 
-//   // Initialize the app.
-//   var server = app.listen(process.env.PORT || 8080, function () {
-//     var port = server.address().port;
-//     console.log("App now running on port", port); 
-//   });
-// });
+// //   // Initialize the app.
+// //   var server = app.listen(process.env.PORT || 8080, function () {
+// //     var port = server.address().port;
+// //     console.log("App now running on port", port); 
+// //   });
+// // });
 
-// 	app.use("/service/contactlistDb", contactlistDb);
+// // 	app.use("/service/contactlistDb", contactlistDb);
 
-// app.post("/", function (req, res) {
-// 	var body = '';
-// 	var regex = /!\[(.*?)\]\((.*?)\)/g;
-// 	var m;
-// 	var printResult = (array) => {
-// 		var aResult = [];
-// 		var url = array[2];
-// 		var splited = url.split(".");
-// 		var oResult = {
-// 			"localFile": array[1] + "." + splited[splited.length - 1],
-// 			"fileUrl": url
-// 		};
-// 		aResult.push(oResult);
-// 		return aResult;
-// 	};
-// 	req.on('data', function (data) {
-// 		body += data;
-// 		if (body.length > 1e6)
-// 			request.connection.destroy();
-// 	});
+// // app.post("/", function (req, res) {
+// // 	var body = '';
+// // 	var regex = /!\[(.*?)\]\((.*?)\)/g;
+// // 	var m;
+// // 	var printResult = (array) => {
+// // 		var aResult = [];
+// // 		var url = array[2];
+// // 		var splited = url.split(".");
+// // 		var oResult = {
+// // 			"localFile": array[1] + "." + splited[splited.length - 1],
+// // 			"fileUrl": url
+// // 		};
+// // 		aResult.push(oResult);
+// // 		return aResult;
+// // 	};
+// // 	req.on('data', function (data) {
+// // 		body += data;
+// // 		if (body.length > 1e6)
+// // 			request.connection.destroy();
+// // 	});
 
-// 	req.on('end', function () {
-// 		var post = qs.parse(body);
-// 		var aResult = [];
-// 		// res.send("your request is: " + post.markdown_source);
-// 		while ((m = regex.exec(post.markdown_source)) !== null) {
-// 			if (m.index === regex.lastIndex) {
-// 				regex.lastIndex++;
-// 			}
-// 			aResult = aResult.concat(printResult(m));
-// 		}
-// 		console.log(aResult);
-// 		res.json(aResult);
-// 	});
-// });
+// // 	req.on('end', function () {
+// // 		var post = qs.parse(body);
+// // 		var aResult = [];
+// // 		// res.send("your request is: " + post.markdown_source);
+// // 		while ((m = regex.exec(post.markdown_source)) !== null) {
+// // 			if (m.index === regex.lastIndex) {
+// // 				regex.lastIndex++;
+// // 			}
+// // 			aResult = aResult.concat(printResult(m));
+// // 		}
+// // 		console.log(aResult);
+// // 		res.json(aResult);
+// // 	});
+// // });
 app.listen(theport, function () {
 	// console.log("Example app listens on port 3000.");
 });
