@@ -12,7 +12,7 @@ app.use('/service', express.static(path.join(__dirname, 'service')));
 var mongoose = require("mongoose");
 
 app.get('/', function (req, res) {
-	console.log("method in get/: " + req.method);
+	// console.log("method in get/: " + req.method);
 	var qs = require('querystring');
 	res.send("Hello World");
 });
@@ -29,12 +29,16 @@ var dbName = 'heroku_rwk1pgjs';
 // Create a new MongoClient
 var client = new MongoClient(url);
 
+// The http server will listen to an appropriate port, or default to
+// port 5000.
+var theport = process.env.PORT || 5000;
+
 mongoose.connect(uristring1, function (err, res) {
-  if (err) { 
-    console.log ('ERROR connecting to: ' + uristring1 + '. ' + err);
-  } else {
-    console.log ('Succeeded connected to: ' + uristring1);
-  }
+	if (err) {
+		// console.log ('ERROR connecting to: ' + uristring1 + '. ' + err);
+	} else {
+		// console.log ('Succeeded connected to: ' + uristring1);
+	}
 });
 
 // MongoClient.connect(url, function (err, client) {
@@ -91,6 +95,6 @@ mongoose.connect(uristring1, function (err, res) {
 // 		res.json(aResult);
 // 	});
 // });
-app.listen(process.env.PORT || 3000, function () {
-	console.log("Example app listens on port 3000.");
-});
+// app.listen(process.env.PORT || 3000, function () {
+// 	console.log("Example app listens on port 3000.");
+// });
