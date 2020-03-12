@@ -11,7 +11,9 @@
   "authors": [ "Ben Wen", "Chris Chang" ],
   "license": "MIT",
   "dependencies": {
-    "mongoose": ">=4.1.11"
+    "mongoose": ">=4.1.11",
+    "ejs": "^2.5.7",
+    "express": "^4.16.2"
   },
   "changelog" : [{"0.0.0": "Initial release"},
 		             {"0.1.0": "Update to Mongoose 3.5.7; new MongoClient semantics"},
