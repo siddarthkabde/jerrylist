@@ -1,7 +1,7 @@
 {
-	"_version": "1.12.0",
+	"_version": "1.5.0",
 	"sap.app": {
-		"id": "com.heroku.HerokuDeploy",
+		"id": "jerrylist",
 		"type": "application",
 		"i18n": "i18n/i18n.properties",
 		"applicationVersion": {
@@ -9,12 +9,13 @@
 		},
 		"title": "{{appTitle}}",
 		"description": "{{appDescription}}",
+		"resources": "resources.json",
+		"ach": "ach",
 		"sourceTemplate": {
 			"id": "ui5template.basicSAPUI5ApplicationProject",
 			"version": "1.40.12"
 		}
 	},
-
 	"sap.ui": {
 		"technology": "UI5",
 		"icons": {
@@ -29,23 +30,27 @@
 			"desktop": true,
 			"tablet": true,
 			"phone": true
-		}
+		},
+		"supportedThemes": [
+			"sap_hcb",
+			"sap_belize"
+		]
 	},
-
 	"sap.ui5": {
-		"flexEnabled": false,
 		"rootView": {
-			"viewName": "com.heroku.HerokuDeploy.view.IntialPage",
-			"type": "XML",
-			"async": true,
-			"id": "IntialPage"
+			"viewName": "jerrylist.view.App",
+			"type": "XML"
 		},
 		"dependencies": {
-			"minUI5Version": "1.65.6",
+			"minUI5Version": "1.30.0",
 			"libs": {
-				"sap.ui.layout": {},
 				"sap.ui.core": {},
-				"sap.m": {}
+				"sap.m": {},
+				"sap.ui.layout": {},
+				"sap.ushell": {},
+				"sap.collaboration": {},
+				"sap.ui.comp": {},
+				"sap.uxap": {}
 			}
 		},
 		"contentDensities": {
@@ -56,39 +61,20 @@
 			"i18n": {
 				"type": "sap.ui.model.resource.ResourceModel",
 				"settings": {
-					"bundleName": "com.heroku.HerokuDeploy.i18n.i18n"
+					"bundleName": "jerrylist.i18n.i18n"
 				}
 			}
 		},
 		"resources": {
-			"css": [{
-				"uri": "css/style.css"
-			}]
-		},
-		"routing": {
-			"config": {
-				"routerClass": "sap.m.routing.Router",
-				"viewType": "XML",
-				"async": true,
-				"viewPath": "com.heroku.HerokuDeploy.view",
-				"controlAggregation": "pages",
-				"controlId": "app",
-				"clearControlAggregation": false
-			},
-			"routes": [{
-				"name": "RouteIntialPage",
-				"pattern": "RouteIntialPage",
-				"target": ["TargetIntialPage"]
-			}],
-			"targets": {
-				"TargetIntialPage": {
-					"viewType": "XML",
-					"transition": "slide",
-					"clearControlAggregation": false,
-					"viewId": "IntialPage",
-					"viewName": "IntialPage"
+			"css": [
+				{
+					"uri": "css/style.css"
 				}
-			}
+			]
 		}
+	},
+	"sap.platform.hcp": {
+		"uri": "webapp",
+		"_version": "1.1.0"
 	}
 }
