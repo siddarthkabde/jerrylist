@@ -19,12 +19,12 @@ sap.ui.define([
 			// oModel.loadData("/", {}, false);
 			var data = [];
 			var oModel = new JSONModel();
-			oModel.loadData(
-				"/SaveStudentMaster", //sURL
-				data, //oParameters
-				false, //bAsync
-				'POST' //sType
-			);
+			// oModel.loadData(
+			// 	"/SaveStudentMaster", //sURL
+			// 	data, //oParameters
+			// 	false, //bAsync
+			// 	'POST' //sType
+			// );
 			// //Reload Master model, in case of an insert/change in Name
 			// this.getOwnerComponent().getModel("Master").loadData("/service/contactlistDb/contactlist", {}, false);
 			//Return to display mode
