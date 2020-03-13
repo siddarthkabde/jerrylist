@@ -57,26 +57,6 @@ app.get('/', (req, res) => {
 	});
 });
 
-		var myStudents = [{
-				SNo: 1
-				Adm: "X18"
-				Name: "G. AMULYA"
-				Class: "N - A"
-				Sex: "G"
-
-			}, {
-				SNo: 2
-				Adm: "X100"
-				Name: "CH. BHASHITHA PRIYA"
-				Class: "N - A"	
-				Sex: "G"
-		];
-		
-		db.collection("StudentMaster").insertMany(myStudents, function (err, result) {
-        if (err) throw err;
-        console.log("Number of documents inserted: " + res.insertedCount);
-        db.close();
-
 // app.post('/SaveStudentMaster', (req, res) => {
 //   db.collection('StudentMaster').save(req.body, (err, result) => {
 //     if (err) return console.log('--->Error->',err);
