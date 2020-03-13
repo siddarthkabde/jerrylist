@@ -81,7 +81,7 @@ sap.ui.define([
 
 							oModel.loadData(
 								"/SaveStudentMaster", //sURL
-								XL_row_object, //oParameters
+								XL_row_object[0], //oParameters
 								false, //bAsync
 								'POST' //sType
 							);
