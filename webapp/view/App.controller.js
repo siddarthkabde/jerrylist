@@ -13,7 +13,9 @@ sap.ui.define([
 		onInit: function () {
 			
 			$.ajax({
-				url: "./"
+				url: "./",
+				type: "GET",
+				dataType: "json"
 			}).done(function(data, status, jqxhr) {
 				var oModel = new sap.ui.model.json.JSONModel();
 				oModel.setData({modelData : data});
