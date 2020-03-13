@@ -1,6 +1,7 @@
 sap.ui.define([
-	"sap/ui/core/mvc/Controller"
-], function (Controller) {
+	"sap/ui/core/mvc/Controller",
+	"sap/ui/model/json/JSONModel"
+], function (Controller, JSONModel) {
 	"use strict";
 
 	return Controller.extend("jerrylist.view.controller.App", {
@@ -12,14 +13,17 @@ sap.ui.define([
 		 */
 		onInit: function () {
 			
-			$.ajax({
-				url: "./",
-				type: "GET",
-				dataType: "json"
-			}).done(function(data, status, jqxhr) {
-				var oModel = new sap.ui.model.json.JSONModel();
-				oModel.setData({modelData : data});
-			});
+			var oModel = new JSONModel();
+			oModel.loadData("/", {}, false);
+			
+			// $.ajax({
+			// 	url: "./",
+			// 	type: "GET",
+			// 	dataType: "json"
+			// }).done(function(data, status, jqxhr) {
+			// 	var oModel = new sap.ui.model.json.JSONModel();
+			// 	oModel.setData({modelData : data});
+			// });
 			
 			var done;
 		},
