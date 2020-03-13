@@ -56,3 +56,15 @@ app.get('/', (req, res) => {
     });
 });
 
+app.post('/SaveStudentMaster', (req, res) => {
+  db.collection('StudentMaster').save(req.body, (err, result) => {
+    if (err) return console.log('--->Error->',err);
+    console.log('--->saved to database');
+    res.redirect('/');
+  });
+})
+
+
+
+
+

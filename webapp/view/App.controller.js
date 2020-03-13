@@ -1,6 +1,8 @@
+var oModel = new sap.ui.model.json.JSONModel();
 sap.ui.define([
 	"sap/ui/core/mvc/Controller",
-	"sap/ui/model/json/JSONModel"
+	"sap/ui/model/json/JSONModel",
+	"jerrylist/libs/xlsx"
 ], function (Controller, JSONModel) {
 	"use strict";
 
@@ -12,10 +14,22 @@ sap.ui.define([
 		 * @memberOf jerrylist.view.view.App
 		 */
 		onInit: function () {
-			
+
 			var oModel = new JSONModel();
-			oModel.loadData("/", {}, false);
-			
+			// oModel.loadData("/", {}, false);
+			var data = [];
+			var oModel = new JSONModel();
+			oModel.loadData(
+				"/SaveStudentMaster", //sURL
+				data, //oParameters
+				false, //bAsync
+				'POST' //sType
+			);
+			// //Reload Master model, in case of an insert/change in Name
+			// this.getOwnerComponent().getModel("Master").loadData("/service/contactlistDb/contactlist", {}, false);
+			//Return to display mode
+			// this._setDisplayMode();		
+
 			// $.ajax({
 			// 	url: "./",
 			// 	type: "GET",
@@ -24,8 +38,70 @@ sap.ui.define([
 			// 	var oModel = new sap.ui.model.json.JSONModel();
 			// 	oModel.setData({modelData : data});
 			// });
-			
+
 			var done;
+		},
+
+		handleUploadPress: function () {
+			var oEntry1 = this.mapoEntry1();
+		},
+
+		// function to upload the data form the file into the table.
+		mapoEntry1: function () {
+			// var oGlobalBusyDialog = new sap.m.BusyDialog();
+			// oGlobalBusyDialog.open();
+			var t = this;
+			var oFileUploader = this.getView().byId("fileUploader");
+			if (!oFileUploader.getValue()) {
+				MessageToast.show("choose a file first");
+			} else {
+				var oTable = this.getView().byId("idTable");
+				var file = oFileUploader.getFocusDomRef().files[0];
+				if (file && window.FileReader) {
+					var reader = new FileReader();
+					reader.onload = function (e) {
+						var that = this;
+						var data = e.target.result;
+						var workbook = XLSX.read(data, {
+							type: 'binary'
+						});
+
+						workbook.SheetNames.forEach(function (sheetName) {
+							var that = this;
+							if (sheetName != 'Student Master') {
+								return;
+							}
+
+							var XL_row_object = XLSX.utils.sheet_to_row_object_array(workbook.Sheets[sheetName]);
+							var finalArr = XL_row_object.filter(function (val) {
+								// return val.Agrmnt No. != "";
+							});
+
+							oModel.setData(XL_row_object);
+							
+							
+							
+							
+							// var oStore = jQuery.sap.storage(jQuery.sap.storage.Type.local);
+							// //storage
+							// oStore.put("studentMarks", XL_row_object);
+							// sap.ui.getCore().setModel(oModel, "studentsModel");
+
+							// var oStore1 = jQuery.sap.storage(jQuery.sap.storage.Type.local);
+							// var oDate = oStore1.get("studentData");
+
+						});
+
+						// oTable = t.byId("idTable");
+						// oGlobalBusyDialog.close();
+						// oTable.setModel(sap.ui.getCore().getModel("studentsModel"));
+					};
+
+					reader.readAsBinaryString(file);
+
+				}
+			}
+
 		},
 
 		/**

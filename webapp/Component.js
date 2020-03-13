@@ -7,7 +7,7 @@ sap.ui.define([
 ], function(UIComponent, Device, models, Button) {
 	"use strict";
 
-	debugger;
+	// debugger;
 
 	var JerryButton = Button.extend("sap.m.custom.JerryButton", {
       metadata: {
@@ -50,12 +50,12 @@ sap.ui.define([
 
   var AnotherButton = function(oRef){
 		console.log("I am here");
-		debugger;
+		// debugger;
 	}; 
 
   AnotherButton.prototype = Object.create(Button.prototype);
   AnotherButton.prototype.constructor = function(){
-  	debugger;
+  	// debugger;
   }
 
   var oJerryButton = new AnotherButton({ application: oApplication } );
