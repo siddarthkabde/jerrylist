@@ -56,13 +56,21 @@ app.get('/', (req, res) => {
     });
 });
 
+// app.post('/SaveStudentMaster', (req, res) => {
+//   db.collection('StudentMaster').save(req.body, (err, result) => {
+//     if (err) return console.log('--->Error->',err);
+//     console.log('--->saved to database');
+//     res.redirect('/');
+//   });
+// })
+
+
 app.post('/SaveStudentMaster', (req, res) => {
-  db.collection('StudentMaster').save(req.body, (err, result) => {
-    if (err) return console.log('--->Error->',err);
-    console.log('--->saved to database');
-    res.redirect('/');
-  });
+  //db.collection('StudentMaster').save(req.body, (err, result) => {});
+  var body = req.body;
+  db.collection('StudentMaster').insertOne(body);
 })
+
 
 
 
