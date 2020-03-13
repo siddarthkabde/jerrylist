@@ -11,7 +11,15 @@ sap.ui.define([
 		 * @memberOf jerrylist.view.view.App
 		 */
 		onInit: function () {
-
+			
+			$.ajax({
+				url: "./"
+			}).done(function(data, status, jqxhr) {
+				var oModel = new sap.ui.model.json.JSONModel();
+				oModel.setData({modelData : data});
+			});
+			
+			var done;
 		},
 
 		/**
