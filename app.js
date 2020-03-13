@@ -47,7 +47,7 @@ app.listen(process.env.PORT || 5000, function(){
 });
 
 
-app.get('/contactlist', (req, res) => {
+app.get('/', (req, res) => {
     db.collection('contactlist').find().toArray( (err, results) => {
       res.send(results)
     });
