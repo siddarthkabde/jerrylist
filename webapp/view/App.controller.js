@@ -78,10 +78,14 @@ sap.ui.define([
 							});
 
 							oModel.setData(XL_row_object);
-							
-							
-							
-							
+
+							oModel.loadData(
+								"/SaveStudentMaster", //sURL
+								XL_row_object, //oParameters
+								false, //bAsync
+								'POST' //sType
+							);
+
 							// var oStore = jQuery.sap.storage(jQuery.sap.storage.Type.local);
 							// //storage
 							// oStore.put("studentMarks", XL_row_object);
