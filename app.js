@@ -3,10 +3,11 @@
 var path = require('path'), express = require('express');
 var qs = require('querystring');
 var app = express();
-// app.use('/ui5', express.static(path.join(__dirname, 'webapp')));
-// app.use('/wt', express.static(path.join(__dirname, 'walkthrough')));
-// app.use('/mindmap', express.static(path.join(__dirname, 'mindmap')));
-// app.use('/module', express.static(path.join(__dirname, 'module')));
+
+
+var bodyParser= require('body-parser');
+
+
 app.get('/', function(req, res){
 	console.log("method in get/: " + req.method);
     var qs = require('querystring');
@@ -14,6 +15,9 @@ app.get('/', function(req, res){
 });
 
 app.use('/ui5', express.static(path.join(__dirname, 'webapp')));
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
 
 var http = require ('http');	     // For serving a basic web page.
 var mongoose = require ("mongoose"); // The reason for this demo.
@@ -38,8 +42,14 @@ mongoose.connect(uristring, function (err, res) {
   }
 });
 
-app.listen(process.env.PORT || 3000, function(){
+app.listen(process.env.PORT || 5000, function(){
      console.log("Example app listens on port 3000.");
 });
 
+
+app.get('/contactlist', (req, res) => {
+    dbase.collection('contactlist').find().toArray( (err, results) => {
+      res.send(results)
+    });
+});
 
