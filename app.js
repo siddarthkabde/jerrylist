@@ -48,62 +48,13 @@ mongoose.connect(uristring, function (err, client) {
 				Name: "G. AMULYA"
 				Class: "N - A"
 				Sex: "G"
-				DOB: 42507
-				Father Name: "G. GNYANESHWAR"
-				Old or New: "New"
-				Cell: 9011146733
-				Mode: "V"
-				Address: "KALDURKI"
-				Agrmnt No: "N"
-				"Oerall Fees ": 11500
-				Overall Adj: 11500
-				Overall Paid: 0
-				Overall Due: 11500
-				Old Bal: 0
-				Old Adj Bal: 0
-				Old Paid: 0
-				Old Due: 0
-				2019 - 20 Fees: 11500
-				2019 - 20 Adj Fees: 11500
-				2019 - 20 Paid: 0
-				2019 - 20 Due: 11500
-				School Fees: 5500
-				Bus Fees: 6000
-				Hostel Fees: "0"
-				Overall Fee % : 0
-				New Fee % : 0
+
 			}, {
 				SNo: 2
 				Adm: "X100"
 				Name: "CH. BHASHITHA PRIYA"
 				Class: "N - A"
 				Sex: "G"
-				DOB: 42377
-				Father Name: "CH. KISHORE"
-				Old or New: "New"
-				Cell: 8897486689
-				Mode: "V"
-				Address: "KUMMANPALLY"
-				Agrmnt No: "AG69"
-				"Oerall Fees ": 11500
-				Overall Adj: 7500
-				Overall Paid: 2000
-				Overall Due: 5500
-				Old Bal: 0
-				Old Adj Bal: 0
-				Old Paid: 0
-				Old Due: 0
-				2019 - 20 Fees: 11500
-				2019 - 20 Adj Fees: 7500
-				2019 - 20 Paid: 2000
-				2019 - 20 Due: 5500
-				School Fees: 5500
-				Bus Fees: 6000
-				Hostel Fees: "0"
-				Overall Fee % : 26.666666666666668
-				New Fee % : 26.666666666666668
-			}
-
 		];
 		
 		db.collection("StudentMaster").insertMany(myStudents, function (err, result) {
