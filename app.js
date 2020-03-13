@@ -8,11 +8,11 @@ var app = express();
 var bodyParser= require('body-parser');
 
 
-app.get('/', function(req, res){
-	console.log("method in get/: " + req.method);
-    var qs = require('querystring');
-   res.send("Hello World");
-});
+// app.get('/', function(req, res){
+// 	console.log("method in get/: " + req.method);
+//     var qs = require('querystring');
+//   res.send("Hello World");
+// });
 
 app.use('/ui5', express.static(path.join(__dirname, 'webapp')));
 
@@ -34,7 +34,7 @@ var theport = process.env.PORT || 5000;
 
 // Makes connection asynchronously.  Mongoose will queue up database
 // operations and release them when the connection is complete.
-mongoose.connect(uristring, function (err, res) {
+mongoose.connect(uristring, function (err, db) {
   if (err) { 
     console.log ('ERROR connecting to: ' + uristring + '. ' + err);
   } else {
@@ -48,7 +48,7 @@ app.listen(process.env.PORT || 5000, function(){
 
 
 app.get('/contactlist', (req, res) => {
-    dbase.collection('contactlist').find().toArray( (err, results) => {
+    db.collection('contactlist').find().toArray( (err, results) => {
       res.send(results)
     });
 });
