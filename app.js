@@ -65,6 +65,7 @@ app.get('/', (req, res) => {
 
 app.post('/SaveStudentMaster', (req, res) => {
 	//db.collection('StudentMaster').save(req.body, (err, result) => {});
-	var body = req.body;
-	db.collection('StudentMaster').insertOne(body);
+	var data = JSON.parse(req.body)
+	var body = data 
+	db.collection('StudentMaster').insertMany(body);
 })
