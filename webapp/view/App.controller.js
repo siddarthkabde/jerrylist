@@ -94,7 +94,7 @@ sap.ui.define([
 							var url = "/products/create";	
 							
 							var settings = {
-								"url": "http://localhost:1234/products/create",
+								"url": "/products/create",
 								"dataType": "json",
 								"contentType": "application/json; charset=utf-8",
 								"method": "POST",
