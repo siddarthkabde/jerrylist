@@ -17,7 +17,11 @@ var uristring =
 	'mongodb://localhost:27017';
 
 var db
-mongoose.connect(uristring, function (err, client) {
+mongoose.connect(uristring, function (err, {
+	"user": "someuser",
+	"pass": "abcd1234",
+	"useMongoClient": true
+}, client) {
 	if (err) {
 		console.log('ERROR connecting to: ' + uristring + '. ' + err);
 	} else {
@@ -25,7 +29,7 @@ mongoose.connect(uristring, function (err, client) {
 		db = client
 
 	}
-});	
+});
 // var mongoDB = process.env.MONGODB_URI || dev_db_url;
 // mongoose.connect(mongoDB);
 // mongoose.Promise = global.Promise;
