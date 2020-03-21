@@ -24,7 +24,10 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use('/products', product);
 
 var port = 1234;
+// The http server will listen to an appropriate port, or default to
+// port 1234.
+var theport = process.env.PORT || 1234;
 
-app.listen(port, () => {
+app.listen(theport, () => {
     console.log('Server is up and running on port numner ' + port);
 });
