@@ -13,13 +13,13 @@ exports.product_create = function (req, res) {
 
     var product = new Product(
         {
-            name: req.body.name,
-            price: req.body.price
+            name: "Product 1",
+            price: 5000
         }
     )    
 
     console.log(product.collection);
-    product.collection.insertMany(data);
+    // product.collection.insertMany(data);
 
     product.save(function (err) {
         if (err) {
