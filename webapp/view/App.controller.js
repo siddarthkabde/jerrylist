@@ -1,9 +1,10 @@
 var oModel = new sap.ui.model.json.JSONModel();
 sap.ui.define([
+	"sap/m/MessageBox",
 	"sap/ui/core/mvc/Controller",
 	"sap/ui/model/json/JSONModel",
 	"jerrylist/libs/xlsx"
-], function (Controller, JSONModel) {
+], function (MessageBox, Controller, JSONModel) {
 	"use strict";
 
 	return Controller.extend("jerrylist.view.controller.App", {
@@ -44,6 +45,7 @@ sap.ui.define([
 
 		handleUploadPress: function () {
 			var oEntry1 = this.mapoEntry1();
+			MessageBox.success("Student Master Data Uploaded Successfully");
 		},
 
 		// function to upload the data form the file into the table.
