@@ -1,26 +1,46 @@
 {
-  "name": "productsapp",
-  "version": "1.0.0",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "name": "basic",
+  "version": "0.0.1",
+  "description": "Loyola Public School - Sample Application",
+  "engines": {
+    "node": "8.14.1"
   },
-  "author": "",
-  "license": "ISC",
+  "main": "server.js",
+  "scripts": {
+    "start": "node --inspect server.js"
+  },
   "dependencies": {
     "body-parser": "^1.19.0",
     "cookie-parser": "^1.4.5",
     "csurf": "^1.11.0",
     "dotenv": "^8.2.0",
-    "ejs": "^3.0.1",
+    "ejs": "^2.7.4",
     "express": "^4.17.1",
     "mongodb": "^3.5.5",
-    "mongoose": "^5.9.5",
+    "mongoose": "^5.9.6",
     "nodemon": "^2.0.2",
     "path": "^0.12.7",
     "pug": "^2.0.4",
-    "router": "^1.3.4",
+    "router": "^1.3.5",
     "serve-favicon": "^2.5.0"
   },
-  "description": ""
+  "devDependencies": {
+    "request": "^2.81.0",
+    "tape": "^4.7.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/siddarthkabde/educationforall.git"
+  },
+  "keywords": [
+    "node",
+    "heroku",
+    "express"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/siddarthkabde/educationforall/issues"
+  },
+  "homepage": "https://github.com/siddarthkabde/educationforall#readme",
+  "author": "Loyola Management"
 }

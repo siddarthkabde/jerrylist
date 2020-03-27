@@ -1,0 +1,32 @@
+<mvc:View
+  height="100%"
+  controllerName="loyolabdn.controller.Launchpad"
+  xmlns:mvc="sap.ui.core.mvc"
+  xmlns="sap.m">
+  <Page
+    showHeader="True"
+    enableScrolling="true" >
+    <TileContainer
+      id="container"
+      tileDelete="handleTileDelete"
+      tiles="{/TileCollection}">
+      <StandardTile
+        icon="sap-icon://{icon}"
+        type="{type}"
+        number="{number}"
+        numberUnit="{numberUnit}"
+        title="{title}"
+        info="{info}"
+        press="tilePress"
+        infoState="{infoState}" />
+    </TileContainer>
+    <footer>
+      <Toolbar>
+        <ToolbarSpacer/>
+          <Button text="Edit" press="handleEditPress" />
+          <Button text="Busy state" press="handleBusyPress" />
+        <ToolbarSpacer/>
+      </Toolbar>
+    </footer>
+  </Page>
+</mvc:View>

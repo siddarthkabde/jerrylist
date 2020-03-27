@@ -4,12 +4,13 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta http-equiv='Content-Type' content='text/html;charset=UTF-8'/>
 		<title>Jerry list in Wiesloch</title>
-		<script src="https://sapui5.hana.ondemand.com/resources/sap-ui-core.js"
+		<script src="https://code.highcharts.com/highcharts.src.js"></script>
+		<script src="https://openui5.hana.ondemand.com/resources/sap-ui-core.js"
 				id="sap-ui-bootstrap"
 				data-sap-ui-libs="sap.m"
 				data-sap-ui-theme="sap_bluecrystal"		
 				data-sap-ui-compatVersion="edge"
-				data-sap-ui-resourceroots='{"jerrylist": ""}'
+				data-sap-ui-resourceroots='{"loyolabdn": ""}'
 				>
 		</script>
 		<!-- only load the mobile lib "sap.m" and the "sap_bluecrystal" theme -->
@@ -19,7 +20,7 @@
 				sap.ui.getCore().attachInit(function(){
 					sap.ui.core.ComponentContainer({
 						//after componentContainer is created then create component
-						name:"jerrylist"
+						name:"loyolabdn"
 					}).placeAt("content");
 				});
 		</script>

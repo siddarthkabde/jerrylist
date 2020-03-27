@@ -1,7 +1,7 @@
 {
-	"_version": "1.5.0",
+	"_version": "1.12.0",
 	"sap.app": {
-		"id": "jerrylist",
+		"id": "loyolabdn",
 		"type": "application",
 		"i18n": "i18n/i18n.properties",
 		"applicationVersion": {
@@ -9,18 +9,21 @@
 		},
 		"title": "{{appTitle}}",
 		"description": "{{appDescription}}",
-		"resources": "resources.json",
-		"ach": "ach",
 		"sourceTemplate": {
 			"id": "ui5template.basicSAPUI5ApplicationProject",
 			"version": "1.40.12"
+		},
+		"dataSources": {
+			"apps": {
+				"uri": "model/tiles.json",
+				"type": "JSON"
+			}
 		}
 	},
 	"sap.ui": {
 		"technology": "UI5",
 		"icons": {
 			"icon": "",
-			"favIcon": "",
 			"phone": "",
 			"phone@2": "",
 			"tablet": "",
@@ -30,27 +33,22 @@
 			"desktop": true,
 			"tablet": true,
 			"phone": true
-		},
-		"supportedThemes": [
-			"sap_hcb",
-			"sap_belize"
-		]
+		}
 	},
 	"sap.ui5": {
+		"flexEnabled": false,
 		"rootView": {
-			"viewName": "jerrylist.view.App",
-			"type": "XML"
+			"viewName": "loyolabdn.view.App",
+			"type": "XML",
+			"async": true,
+			"id": "App"
 		},
 		"dependencies": {
-			"minUI5Version": "1.30.0",
+			"minUI5Version": "1.65.6",
 			"libs": {
-				"sap.ui.core": {},
-				"sap.m": {},
 				"sap.ui.layout": {},
-				"sap.ushell": {},
-				"sap.collaboration": {},
-				"sap.ui.comp": {},
-				"sap.uxap": {}
+				"sap.ui.core": {},
+				"sap.m": {}
 			}
 		},
 		"contentDensities": {
@@ -61,20 +59,83 @@
 			"i18n": {
 				"type": "sap.ui.model.resource.ResourceModel",
 				"settings": {
-					"bundleName": "jerrylist.i18n.i18n"
+					"bundleName": "loyolabdn.i18n.i18n"
 				}
+			},
+			"apps": {
+				"type": "sap.ui.model.json.JSONModel",
+				"dataSource": "apps"
 			}
 		},
 		"resources": {
-			"css": [
-				{
-					"uri": "css/style.css"
+			"css": [{
+				"uri": "css/style.css"
+			}],
+			"js": [{
+				"uri": "./util/xlsx.js"
+			}]
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"viewType": "XML",
+				"async": true,
+				"viewPath": "loyolabdn.view",
+				"controlAggregation": "pages",
+				"controlId": "app",
+				"clearControlAggregation": false
+
+			},
+			"routes": [{
+				"name": "appHome",
+				"pattern": "",
+				"titleTarget": "",
+				"greedy": false,
+				"target": "home"
+			}, {
+				"pattern": "employees",
+				"name": "employeeList",
+				"target": "employees"
+			}, {
+				"pattern": "PatternFileUpload",
+				"name": "fileUpload",
+				"target": "TargetFile"
+			}, {
+				"pattern": "StudentMarks",
+				"name": "studentMarks",
+				"target": "TargetStudentMarks"
+			}, {
+				"pattern": "Students/{Adm}",
+				"name": "studentDetails",
+				"target": "TargetStudent"
+			}],
+			"targets": {
+				"home": {
+					"viewId": "home",
+					"viewName": "Launchpad",
+					"viewLevel": 1
+				},
+				"employees": {
+					"viewId": "employeeList",
+					"viewName": "StudentTableView",
+					"viewLevel": 2
+				},
+				"TargetFile": {
+					"viewId": "fileUpload",
+					"viewName": "FileUpload",
+					"viewLevel": 2
+				},
+				"TargetStudentMarks": {
+					"viewId": "studentMarks",
+					"viewName": "StudentMarks",
+					"viewLevel": 2
+				},
+				"TargetStudent": {
+					"viewId": "studentDetails",
+					"viewName": "StudentDetails",
+					"viewLevel": 3
 				}
-			]
+			}
 		}
-	},
-	"sap.platform.hcp": {
-		"uri": "webapp",
-		"_version": "1.1.0"
 	}
 }

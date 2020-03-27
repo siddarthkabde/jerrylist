@@ -1,1 +1,1 @@
-{"type":"sap.web","builders":{"configs":{}},"runners":{"configs":{}},"attributes":{"sap.watt.common.setting":["{\"projectType\":[\"sap.watt.uitools.ide.web\",\"sap.watt.uitools.ide.fiori\"]}"]},"description":"","mixinTypes":[]}
+{"type":"sap.web","builders":{"configs":{}},"runners":{"configs":{}},"attributes":{"sap.watt.common.setting":["{\"layout\":{\"snapshot\":{\"viewport\":{\"x\":330,\"y\":8,\"scale\":1},\"collapsedPorts\":[\"_OpenUI5LoyolaV1_webapp_view_StudentTableView_view_xml_2\"],\"expandedShapes\":[],\"selection\":[],\"focus\":\"\"}}}"]},"mixinTypes":[]}

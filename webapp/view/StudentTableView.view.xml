@@ -1,0 +1,49 @@
+<mvc:View controllerName="loyolabdn.controller.StudentTableView" xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc">
+	<Page id="employeeListPage" title="Students" showNavButton="true" navButtonPress="onNavBack"
+		class="sapUiResponsiveContentPadding">
+		<Table id="idTable" inset="false" items="{/}" alternateRowColors="true">
+			<headerToolbar>
+				<Toolbar>
+					<Title text="Students"/>
+					<ToolbarSpacer/>
+					<SearchField id="idSearch1" width="50%" liveChange="onlivechange"/>
+					<Button tooltip="View Sort Settings" icon="sap-icon://sort" press="handleSortButtonPressed"/>
+					<Button tooltip="View Filter Settings" icon="sap-icon://filter" press="handleFilterButtonPressed"/>
+					<Button icon="sap-icon://action-settings" press="onPersoButtonPressed"/>
+					<!--<SearchField id="idSearch2" placeholder="Adm No" width="15%" liveChange="onlivechange"/>-->
+				</Toolbar>
+			</headerToolbar>
+			<infoToolbar>
+				<OverflowToolbar id="vsdFilterBar" visible="false">
+					<Text id="vsdFilterLabel"/>
+				</OverflowToolbar>
+			</infoToolbar>
+			<columns>
+				<Column id="AdmCol">
+					<Text text="Admission No"></Text>
+				</Column>
+				<Column id="NameCol">
+					<Text text="Student Name"></Text>
+				</Column>
+				<Column id="ClassCol">
+					<Text text="Class"></Text>
+				</Column>
+				<Column id="FatherCol">
+					<Text text="Father Name"></Text>
+				</Column>
+				<Column id="CellCol">
+					<Text text="Cell"></Text>
+				</Column>
+			</columns>
+			<items>
+				<ColumnListItem type="Navigation" press="NavigateToStudentDetails">
+					<Text text="{Adm}"></Text>
+					<Text text="{Name}"></Text>
+					<Text text="{Class}"></Text>
+					<Text text="{Father Name}"></Text>
+					<Text text="{Cell}"></Text>
+				</ColumnListItem>
+			</items>
+		</Table>
+	</Page>
+</mvc:View>
