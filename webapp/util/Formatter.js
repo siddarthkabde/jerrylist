@@ -1,8 +1,8 @@
-jQuery.sap.declare("jerrylist.util.Formatter");
+jQuery.sap.declare("loyolabdn.util.Formatter");
 
 jQuery.sap.require("sap.ui.core.format.DateFormat");
 
-jerrylist.util.Formatter = {
+loyolabdn.util.Formatter = {
 	
 	_statusStateMap : {
 		"P" : "Success",
@@ -15,7 +15,7 @@ jerrylist.util.Formatter = {
 	},
 	
 	statusState :  function (value) {
-		var map = jerrylist.util.Formatter._statusStateMap;
+		var map = loyolabdn.util.Formatter._statusStateMap;
 		return (value && map[value]) ? map[value] : "None";
 	},
 	

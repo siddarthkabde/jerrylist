@@ -1,14 +1,14 @@
 // Jerry 2017-05-20 11:55AM - below comment works!
 // /*eslint linebreak-style: ["error", "windows"]*/
-jQuery.sap.declare("jerrylist.util.Grouper");
+jQuery.sap.declare("loyolabdn.util.Grouper");
 
-jerrylist.util.Grouper = {
+loyolabdn.util.Grouper = {
 
 	bundle : null, // somebody has to set this
 
 	LifecycleStatus : function (oContext) {
 		var status = oContext.getProperty("LifecycleStatus");
-		var text = jerrylist.util.Grouper.bundle.getText("StatusText" + status, "?");
+		var text = loyolabdn.util.Grouper.bundle.getText("StatusText" + status, "?");
 		return {
 			key: status,
 			text: text

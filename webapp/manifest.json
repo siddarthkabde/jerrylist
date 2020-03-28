@@ -1,7 +1,7 @@
 {
 	"_version": "1.5.0",
 	"sap.app": {
-		"id": "jerrylist",
+		"id": "loyolabdn",
 		"type": "application",
 		"i18n": "i18n/i18n.properties",
 		"applicationVersion": {
@@ -38,7 +38,7 @@
 	},
 	"sap.ui5": {
 		"rootView": {
-			"viewName": "jerrylist.view.App",
+			"viewName": "loyolabdn.view.App",
 			"type": "XML"
 		},
 		"dependencies": {
@@ -61,7 +61,7 @@
 			"i18n": {
 				"type": "sap.ui.model.resource.ResourceModel",
 				"settings": {
-					"bundleName": "jerrylist.i18n.i18n"
+					"bundleName": "loyolabdn.i18n.i18n"
 				}
 			}
 		},

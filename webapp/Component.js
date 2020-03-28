@@ -2,7 +2,7 @@
 sap.ui.define([
 	"sap/ui/core/UIComponent",
 	"sap/ui/Device",
-	"jerrylist/model/models",
+	"loyolabdn/model/models",
 	"sap/m/Button"
 ], function(UIComponent, Device, models, Button) {
 	"use strict";
@@ -59,7 +59,7 @@ sap.ui.define([
   }
 
   var oJerryButton = new AnotherButton({ application: oApplication } );
-	return UIComponent.extend("jerrylist.Component", {
+	return UIComponent.extend("loyolabdn.Component", {
 		metadata: {
 			manifest: "json"
 		},
@@ -73,7 +73,7 @@ sap.ui.define([
 			UIComponent.prototype.init.apply(this, arguments);
 
 			this.setModel(models.createDeviceModel(), "device");
-			var oModel = new sap.ui.model.json.JSONModel(jQuery.sap.getModulePath("jerrylist.model","/mock.json"));
+			var oModel = new sap.ui.model.json.JSONModel(jQuery.sap.getModulePath("loyolabdn.model","/mock.json"));
 			this.setModel(oModel);
 		}
 	});
