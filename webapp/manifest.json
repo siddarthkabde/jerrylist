@@ -84,17 +84,27 @@
 				"clearControlAggregation": false
 			},
 			"routes": [{
-				"name": "apphome",
+				"name": "appHome",
 				"pattern": "",
 				"titleTarget": "",
 				"greedy": false,
 				"target": "home"
 			}, {
-				"name": "fileUpload",
+				"pattern": "employees",
+				"name": "employeeList",
+				"target": "employees"
+			}, {
 				"pattern": "PatternFileUpload",
-				"titleTarget": "",
-				"greedy": false,
+				"name": "fileUpload",
 				"target": "TargetFile"
+			}, {
+				"pattern": "StudentMarks",
+				"name": "studentMarks",
+				"target": "TargetStudentMarks"
+			}, {
+				"pattern": "Students/{Adm}",
+				"name": "studentDetails",
+				"target": "TargetStudent"
 			}],
 			"targets": {
 				"home": {
@@ -102,13 +112,25 @@
 					"viewName": "Launchpad",
 					"viewLevel": 1
 				},
-				"TargetFile": {
-					"viewType": "XML",
-					"transition": "slide",
-					"clearControlAggregation": false,
-					"viewName": "FileUpload",
-					"viewId": "fileUpload",
+				"employees": {
+					"viewId": "employeeList",
+					"viewName": "StudentTableView",
 					"viewLevel": 2
+				},
+				"TargetFile": {
+					"viewId": "fileUpload",
+					"viewName": "FileUpload",
+					"viewLevel": 2
+				},
+				"TargetStudentMarks": {
+					"viewId": "studentMarks",
+					"viewName": "StudentMarks",
+					"viewLevel": 2
+				},
+				"TargetStudent": {
+					"viewId": "studentDetails",
+					"viewName": "StudentDetails",
+					"viewLevel": 3
 				}
 			}
 		},
