@@ -1,8 +1,9 @@
 var oRouter;
 var oModel = new sap.ui.model.json.JSONModel();
 sap.ui.define([
-	"./BaseController"
-], function (BaseController) {
+	"./BaseController",
+	"sap/m/MessageBox"
+], function (BaseController, MessageBox) {
 	"use strict";
 
 	return BaseController.extend("loyolabdn.controller.FileUpload", {
