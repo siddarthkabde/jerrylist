@@ -1,9 +1,21 @@
-<mvc:View
-	controllerName="loyolabdn.controller.App"
-	xmlns="sap.m"
-	xmlns:mvc="sap.ui.core.mvc"
-	displayBlock="true">
-	<Page showHeader = "false">
-		<App id="app"/>
-	</Page>
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns:u="sap.ui.unified" displayBlock="true" xmlns="sap.m" xmlns:l="sap.ui.layout.form" controllerName="jerrylist.view.App"
+	xmlns:html="http://www.w3.org/1999/xhtml">
+	<App>
+		<pages>
+			<Page title="Loyola Public School - Please upload file" showNavButton="true" navButtonPress="onNavBack">
+				<content>
+					<l:SimpleForm editable="true">
+						<l:content>
+							<Label text="File Name"></Label>
+							<VBox>
+								<u:FileUploader id="fileUploader" name="myFileUpload" uploadUrl="upload/" tooltip="Upload your file to the local server"
+									uploadComplete="handleUploadComplete" change="FileChange"/>
+								<Button text="Upload File" press="handleUploadPress"/>
+							</VBox>
+						</l:content>
+					</l:SimpleForm>
+				</content>
+			</Page>
+		</pages>
+	</App>
 </mvc:View>

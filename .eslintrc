@@ -289,5 +289,6 @@
 		"amd": true,
 		"mocha": true,
 		"jasmine": false
-	}
+	},
+	"customRulesPath": null
 }
