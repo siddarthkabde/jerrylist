@@ -84,17 +84,31 @@
 				"clearControlAggregation": false
 			},
 			"routes": [{
-				"name": "home",
+				"name": "apphome",
 				"pattern": "",
 				"titleTarget": "",
 				"greedy": false,
 				"target": "home"
+			}, {
+				"name": "fileUpload",
+				"pattern": "PatternFileUpload",
+				"titleTarget": "",
+				"greedy": false,
+				"target": "TargetFile"
 			}],
 			"targets": {
 				"home": {
 					"viewId": "home",
 					"viewName": "Launchpad",
 					"viewLevel": 1
+				},
+				"TargetFile": {
+					"viewType": "XML",
+					"transition": "slide",
+					"clearControlAggregation": false,
+					"viewName": "FileUpload",
+					"viewId": "fileUpload",
+					"viewLevel": 2
 				}
 			}
 		},
