@@ -1,5 +1,5 @@
 {
-	"_version": "1.5.0",
+	"_version": "1.12.0",
 	"sap.app": {
 		"id": "loyolabdn",
 		"type": "application",
@@ -10,7 +10,6 @@
 		"title": "{{appTitle}}",
 		"description": "{{appDescription}}",
 		"resources": "resources.json",
-		"ach": "ach",
 		"sourceTemplate": {
 			"id": "ui5template.basicSAPUI5ApplicationProject",
 			"version": "1.40.12"
@@ -31,18 +30,16 @@
 			"tablet": true,
 			"phone": true
 		},
-		"supportedThemes": [
-			"sap_hcb",
-			"sap_belize"
-		]
+		"supportedThemes": ["sap_hcb", "sap_belize"]
 	},
 	"sap.ui5": {
 		"rootView": {
 			"viewName": "loyolabdn.view.App",
-			"type": "XML"
+			"type": "XML",
+			"id": ""
 		},
 		"dependencies": {
-			"minUI5Version": "1.30.0",
+			"minUI5Version": "1.65.6",
 			"libs": {
 				"sap.ui.core": {},
 				"sap.m": {},
@@ -63,18 +60,44 @@
 				"settings": {
 					"bundleName": "loyolabdn.i18n.i18n"
 				}
+			},
+			"apps": {
+				"type": "sap.ui.model.json.JSONModel",
+				"settings": {},
+				"preload": false,
+				"uri": "model/tiles.json"
 			}
 		},
 		"resources": {
-			"css": [
-				{
-					"uri": "css/style.css"
+			"css": [{
+				"uri": "css/style.css"
+			}]
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"viewType": "XML",
+				"async": true,
+				"viewPath": "loyolabdn.view",
+				"controlAggregation": "pages",
+				"controlId": "app",
+				"clearControlAggregation": false
+			},
+			"routes": [{
+				"name": "home",
+				"pattern": "",
+				"titleTarget": "",
+				"greedy": false,
+				"target": "home"
+			}],
+			"targets": {
+				"home": {
+					"viewId": "home",
+					"viewName": "Launchpad",
+					"viewLevel": 1
 				}
-			]
-		}
-	},
-	"sap.platform.hcp": {
-		"uri": "webapp",
-		"_version": "1.1.0"
+			}
+		},
+		"flexEnabled": true
 	}
 }
