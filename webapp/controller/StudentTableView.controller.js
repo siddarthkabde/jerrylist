@@ -20,8 +20,7 @@ sap.ui.define([
 			oView = this.getView();
 			var oStore1 = jQuery.sap.storage(jQuery.sap.storage.Type.local);
 			var oModel = new sap.ui.model.json.JSONModel();
-			var oData = oStore1.get("studentModel");
-			oModel.setData(oData);
+			oModel.loadData("/products/test", {}, false);
 			var oTable = this.byId("idTable");
 			// oGlobalBusyDialog.close();
 			oTable.setModel(oModel);
