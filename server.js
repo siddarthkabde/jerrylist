@@ -7,7 +7,7 @@ var product = require('./routes/product'); // Imports routes for the products
 var app = express();
 
 // call UI5 application
-app.use('/ui5', express.static(path.join(__dirname, 'webapp')));
+// app.use('/ui5', express.static(path.join(__dirname, 'webapp')));
 
 
 // Set up mongoose connection
