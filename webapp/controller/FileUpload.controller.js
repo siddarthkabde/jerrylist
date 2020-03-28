@@ -10,6 +10,7 @@ sap.ui.define([
 
 		handleUploadPress: function () {
 			var oEntry1 = this.mapoEntry1();
+			MessageBox.success("Student Master Data Uploaded Successfully");
 		},
 
 		// function to upload the data form the file into the table.
@@ -57,21 +58,19 @@ sap.ui.define([
 
 							var url = "/products/create";
 
-							$.ajax({
-								url: url,
-								type: 'POST',
-								data: $.param({
-									name: "Product1",
-									price: 1000
-								}),
-								contentType: 'application/x-www-form-urlencoded',
-								success: function (data) {
-									console.log("success" + data);
-								},
-								error: function (e) {
-									console.log("error: " + e);
-								}
-							});
+							var settings = {
+								"url": "/products/create",
+								"dataType": "json",
+								"contentType": "application/json; charset=utf-8",
+								"method": "POST",
+								"timeout": 0,
+								"data": JSON.stringify(XL_row_object)
+							  };
+							  
+							  $.ajax(settings).done(function (response) {
+								console.log(response);
+								MessageToast.show("choose a file first");
+							  });
 
 							// var oStore = jQuery.sap.storage(jQuery.sap.storage.Type.local);
 							// //storage
