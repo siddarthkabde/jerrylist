@@ -151,11 +151,8 @@ return BaseController.extend("loyolabdn.controller.StudentTableView", {
 					this.oTPC.activate();
 				}
 
-			}
+			},
 
-		};
-
-	},
 
 	NavigateToStudentDetails: function (oEvent) {
 		alert('Triggering');
