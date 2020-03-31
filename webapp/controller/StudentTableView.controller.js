@@ -137,15 +137,15 @@ sap.ui.define([
 
 			oTable.bindItems("/", oItemTemplate);
 			this.oPersoService.resetPersData();
-			if (this.oTPC = null) {
+
+			if (this.oTPC === undefined) {
 				this.oTPC = new TablePersoController("idPersonalize", {
 					table: oTable,
 					persoService: this.oPersoService,
 					hasGrouping: false
 				});
-			};
-
-			this.oTPC.activate();
+				this.oTPC.activate();
+			}
 
 		},
 
@@ -164,10 +164,10 @@ sap.ui.define([
 			var oTable = that.getView().byId("idProductsTable");
 			oItem = oEvent.getSource();
 			oCtx = oItem.getBindingContext();
-			// var selectedRow = oTable.getModel().getProperty(oCtx.sPath);
-			// sap.ui.getCore().navObject = selectedRow;
+			var path = oEvent.getSource().getBinding("items").getContexts()[oEvent.getSource().indexOfItem(oEvent.getParameters().listItem)].sPath
+			var selectedRow = oTable.getModel().getProperty(path);
+			sap.ui.getCore().navObject = selectedRow;
 			// var path = oCtx.sPath;
-			var path = oEvent.getSource().getBinding("items").getContexts()[oEvent.getSource().indexOfItem(oEvent.getParameters().listItem)].sPath;
 			var newpath = path.replace("/", "prefix");
 
 			this.getRouter().navTo("studentDetails", {
