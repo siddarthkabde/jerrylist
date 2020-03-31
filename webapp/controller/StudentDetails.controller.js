@@ -1,6 +1,7 @@
 sap.ui.define([
-	"./BaseController"
-], function (BaseController) {
+	"./BaseController",
+	"sap/ui/core/Fragment"
+], function (BaseController, Fragment) {
 	"use strict";
 
 	return BaseController.extend("loyolabdn.controller.StudentDetails", {
@@ -29,10 +30,10 @@ sap.ui.define([
 			// that._showFormFragment("Display");
 			that.getView().byId("SimpleFormDisplay480_Trial").setModel(oStudentsModel).bindElement("/");
 
-            var marks = 1500;
-            var overalldues = obj["Overall Due"];
-            var overallpaid = obj["Overall Paid"];
-            var discountgiven = obj["Oerall Fees "]  - obj["Overall Adj"];
+			var marks = 1500;
+			var overalldues = obj["Overall Due"];
+			var overallpaid = obj["Overall Paid"];
+			var discountgiven = obj["Oerall Fees "] - obj["Overall Adj"];
 
 			// code to write the chart. 
 			Highcharts.chart('contain', {
@@ -78,6 +79,25 @@ sap.ui.define([
 
 		},
 		_formFragments: {},
+
+		handleSelectDialogPress: function (sFragmentName) {
+			var oButton = oEvent.getSource();
+			if (!this._oDialog) {
+				Fragment.load({
+					name: "loyolabdn.fragments.Dialog",
+					controller: this
+				}).then(function (oDialog) {
+					this._oDialog = oDialog;
+					this._oDialog.setModel(this.getView().getModel());
+					this._configDialog(oButton);
+					this._oDialog.open();
+				}.bind(this));
+			} else {
+				this._configDialog(oButton);
+				this._oDialog.open();
+			}
+
+		},
 
 		_getFormFragment: function (sFragmentName) {
 			var oFormFragment = this._formFragments[sFragmentName];
