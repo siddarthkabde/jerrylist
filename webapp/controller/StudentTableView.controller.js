@@ -190,7 +190,7 @@ sap.ui.define([
 			// var allFilter = new Filter([oFilter1, oFilter2, oFilter4, oFilter5], false);
 			var allFilter = new Filter([oFilter1, oFilter2, oFilter4]);
 			// filter binding
-			var oTable = this.getView().byId("idTable");
+			var oTable = this.getView().byId("idProductsTable");
 			var oBinding = oTable.getBinding("items");
 			oBinding.filter(allFilter);
 		},
