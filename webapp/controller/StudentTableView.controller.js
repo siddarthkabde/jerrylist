@@ -137,7 +137,7 @@ sap.ui.define([
 
 			oTable.bindItems("/", oItemTemplate);
 			this.oPersoService.resetPersData();
-			if (elem = null) {
+			if (this.oTPC = null) {
 				this.oTPC = new TablePersoController("idPersonalize", {
 					table: oTable,
 					persoService: this.oPersoService,
