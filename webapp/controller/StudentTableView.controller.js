@@ -16,6 +16,65 @@ sap.ui.define([
 	return BaseController.extend("loyolabdn.controller.StudentTableView", {
 		// on Init method. 
 		onInit: function () {
+
+			var oRouter = this.getRouter();
+			oRouter.getRoute("employeeList").attachMatched(this._onRouteMatched, this);
+		},
+
+		// Method triggered when routing is matched. 
+		_onRouteMatched: function (oEvent) {
+			var oArgs, oView;
+			oArgs = oEvent.getParameter("arguments");
+			oView = this.getView();
+			var oStore1 = jQuery.sap.storage(jQuery.sap.storage.Type.local);
+			var oModel = new sap.ui.model.json.JSONModel();
+			oModel.loadData("/products/test", {}, false);
+			var oFinalResult = oModel.getData();
+			oModel.setProperty("/", oFinalResult);
+			var oModelData = oModel.getProperty("/");
+
+			var oColumns = Object.keys(oModelData[0]);
+			var oColumnNames = [];
+
+			$.each(oColumns, function (i, value) {
+				oColumnNames.push({
+					Text: oColumns[i]
+				});
+			});
+
+			oModel.setProperty("/columnNames", oColumnNames);
+			var oTemplate = new Column({
+				header: new Label({
+					text: "{Text}"
+				})
+			});
+
+			var oTable = this.byId("idProductsTable");
+			oTable.setModel(oModel);
+			oTable.bindAggregation("columns", "/columnNames", oTemplate);
+			var oItemTemplate = new ColumnListItem();
+			var oTableHeaders = oTable.getColumns("columns");
+			// oTableHeaders = oModel.getProperty("/columnNames");
+			var current = 0;
+			$.each(oTableHeaders, function (j, value) {
+				var oHeaderName = oTableHeaders[j].getHeader().getText();
+				// var oHeaderName = oTableHeaders[j].Text;
+				oItemTemplate.addCell(new Text({
+					text: "{" + oHeaderName + "}"
+				}));
+
+				oItemTemplate.setType(sap.m.ListType.Navigation);
+				// oItemTemplate.press("NavigateToStudentDetails");
+
+				if (current < 4) {
+					oTable.getColumns()[j].setVisible(true);
+				} else {
+					oTable.getColumns()[j].setVisible(false);
+				}
+				current++;
+			});
+
+			oTable.bindItems("/", oItemTemplate);
 			this.oPersoService = {
 				getPersData: function () {
 					var oDeferred = new jQuery.Deferred();
@@ -78,64 +137,6 @@ sap.ui.define([
 					return "Secondary Group";
 				}
 			};
-			var oRouter = this.getRouter();
-			oRouter.getRoute("employeeList").attachMatched(this._onRouteMatched, this);
-		},
-
-		// Method triggered when routing is matched. 
-		_onRouteMatched: function (oEvent) {
-			var oArgs, oView;
-			oArgs = oEvent.getParameter("arguments");
-			oView = this.getView();
-			var oStore1 = jQuery.sap.storage(jQuery.sap.storage.Type.local);
-			var oModel = new sap.ui.model.json.JSONModel();
-			oModel.loadData("/products/test", {}, false);
-			var oFinalResult = oModel.getData();
-			oModel.setProperty("/", oFinalResult);
-			var oModelData = oModel.getProperty("/");
-
-			var oColumns = Object.keys(oModelData[0]);
-			var oColumnNames = [];
-
-			$.each(oColumns, function (i, value) {
-				oColumnNames.push({
-					Text: oColumns[i]
-				});
-			});
-
-			oModel.setProperty("/columnNames", oColumnNames);
-			var oTemplate = new Column({
-				header: new Label({
-					text: "{Text}"
-				})
-			});
-
-			var oTable = this.byId("idProductsTable");
-			oTable.setModel(oModel);
-			oTable.bindAggregation("columns", "/columnNames", oTemplate);
-			var oItemTemplate = new ColumnListItem();
-			var oTableHeaders = oTable.getColumns("columns");
-			// oTableHeaders = oModel.getProperty("/columnNames");
-			var current = 0;
-			$.each(oTableHeaders, function (j, value) {
-				var oHeaderName = oTableHeaders[j].getHeader().getText();
-				// var oHeaderName = oTableHeaders[j].Text;
-				oItemTemplate.addCell(new Text({
-					text: "{" + oHeaderName + "}"
-				}));
-
-				oItemTemplate.setType(sap.m.ListType.Navigation);
-				// oItemTemplate.press("NavigateToStudentDetails");
-
-				if (current < 4) {
-					oTable.getColumns()[j].setVisible(true);
-				} else {
-					oTable.getColumns()[j].setVisible(false);
-				}
-				current++;
-			});
-
-			oTable.bindItems("/", oItemTemplate);
 			this.oPersoService.resetPersData();
 
 			if (this.oTPC === undefined) {
