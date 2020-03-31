@@ -110,7 +110,7 @@ sap.ui.define([
 				})
 			});
 
-			var oTable = this.byId("idTable");
+			var oTable = this.byId("idProductsTable");
 			oTable.setModel(oModel);
 			oTable.bindAggregation("columns", "/columnNames", oTemplate);
 			var oItemTemplate = new ColumnListItem();
