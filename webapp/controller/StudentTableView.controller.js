@@ -55,8 +55,6 @@ sap.ui.define([
 					};
 
 					this._oBundle = oInitialData;
-
-					//				this._oBundle = null;
 					oDeferred.resolve();
 					return oDeferred.promise();
 				},
