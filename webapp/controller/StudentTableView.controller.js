@@ -137,7 +137,7 @@ sap.ui.define([
 					return "Secondary Group";
 				}
 			};
-			this.oPersoService.resetPersData();
+			// this.oPersoService.resetPersData();
 
 			if (this.oTPC === undefined) {
 				this.oTPC = new TablePersoController("idPersonalize", {
