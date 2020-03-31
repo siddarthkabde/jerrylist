@@ -2,7 +2,7 @@
 	<Page id="employeeListPage" title="Students" showNavButton="true" navButtonPress="onNavBack"
 		class="sapUiResponsiveContentPadding">
 		
-			<Table id="idProductsTable" alternateRowColors="true">
+			<Table id="idProductsTable" alternateRowColors="true" itemPress="NavigateToStudentDetails" >
 						<headerToolbar>
 							<Toolbar id="_IDEGen_toolbar0">
 								<Title id="_IDEGen_title0" text="Students"/>

@@ -7,9 +7,10 @@ sap.ui.define([
 	"sap/m/ColumnListItem",
 	"sap/m/Label",
 	"sap/m/Text",
-	"sap/m/TablePersoController"
+	"sap/m/TablePersoController",
+	"sap/m/ListType"
 
-], function (BaseController, Filter, FilterOperator, JSONModel, Column, ColumnListItem, Label, Text, TablePersoController) {
+], function (BaseController, Filter, FilterOperator, JSONModel, Column, ColumnListItem, Label, Text, TablePersoController, ListType) {
 	"use strict";
 
 	return BaseController.extend("loyolabdn.controller.StudentTableView", {
@@ -124,13 +125,15 @@ sap.ui.define([
 					text: "{" + oHeaderName + "}"
 				}));
 
+                oItemTemplate.setType(sap.m.ListType.Navigation);
+                // oItemTemplate.press("NavigateToStudentDetails");
+
 				if (current < 4) {
 					oTable.getColumns()[j].setVisible(true);
 				} else {
 					oTable.getColumns()[j].setVisible(false);
 				}
 				current++;
-
 			});
 
 			oTable.bindItems("/", oItemTemplate);
@@ -145,13 +148,16 @@ sap.ui.define([
 
 		},
 		
+		NavigateToStudentDetails: function (oEvent) {
+			alert('Triggering');
+		},
+
 		onPersoButtonPressed: function (oEvent) {
 			this.oTPC.openDialog();
 		},
 
 		// method used to navigate to the student details. 
 		NavigateToStudentDetails: function (oEvent) {
-
 			var that = this;
 			var oItem, oCtx;
 			var oTable = that.getView().byId("idTable");
@@ -164,7 +170,6 @@ sap.ui.define([
 
 			this.getRouter().navTo("studentDetails", {
 				Adm: newpath
-					// row: selectedRow
 			});
 		},
 
@@ -173,16 +178,6 @@ sap.ui.define([
 			var aFilter = [];
 			var sQuery = this.getView().byId("idSearch1").getValue();
 			var datatype = typeof sQuery;
-			// if	(datatype === 'number') {
-			// 	parseInt(sQuery);
-			// }
-			// if (sQuery) {
-			// 	aFilter.push(new Filter("Adm", FilterOperator.Contains, sQuery, FilterOperator.oValue2 = "", FilterOperator._bMultiFilter =
-			// 		true));
-			// 	aFilter.push(new Filter("Name", FilterOperator.Contains, sQuery, FilterOperator.ovalue2 = "", FilterOperator._bMultiFilter =
-			// 		true));
-			// }
-
 			var oFilter1 = new Filter("Adm", FilterOperator.Contains, sQuery);
 			var oFilter2 = new Filter("Name", FilterOperator.Contains, sQuery);
 			var oFilter4 = new Filter("Cell", FilterOperator.Contains, sQuery);
@@ -194,7 +189,6 @@ sap.ui.define([
 			var oBinding = oTable.getBinding("items");
 			oBinding.filter(allFilter);
 		},
-
 	});
 
 });
