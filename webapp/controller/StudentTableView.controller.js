@@ -74,6 +74,7 @@ sap.ui.define([
 							return "Primary Group";
 						}
 					}
+					
 					return "Secondary Group";
 				}
 			};
