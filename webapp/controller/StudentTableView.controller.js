@@ -1,9 +1,15 @@
 sap.ui.define([
 	"./BaseController",
 	"sap/ui/model/Filter",
-	"sap/ui/model/FilterOperator"
+	"sap/ui/model/FilterOperator",
+	"sap/ui/model/json/JSONModel",
+	"sap/m/Column",
+	"sap/m/ColumnListItem",
+	"sap/m/Label",
+	"sap/m/Text",
+	"sap/m/TablePersoController"
 
-], function (BaseController, Filter, FilterOperator) {
+], function (BaseController, Filter, FilterOperator, JSONModel, Column, ColumnListItem, Label, Text, TablePersoController) {
 	"use strict";
 
 	return BaseController.extend("loyolabdn.controller.StudentTableView", {
@@ -85,7 +91,7 @@ sap.ui.define([
 			var oModel = new sap.ui.model.json.JSONModel();
 			oModel.loadData("/products/test", {}, false);
 			var oFinalResult = oModel.getData();
-			sap.ui.getCore().getModel().setProperty("/", oFinalResult);
+			oModel.setProperty("/", oFinalResult);
 			var oModelData = oModel.getProperty("/");
 
 			var oColumns = Object.keys(oModelData[0]);
