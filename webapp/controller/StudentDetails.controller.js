@@ -80,7 +80,7 @@ sap.ui.define([
 		},
 		_formFragments: {},
 
-		handleSelectDialogPress: function (sFragmentName) {
+		handleSelectDialogPress: function (oEvent) {
 			var oButton = oEvent.getSource();
 			if (!this._oDialog) {
 				Fragment.load({
