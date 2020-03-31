@@ -74,7 +74,7 @@ sap.ui.define([
 							return "Primary Group";
 						}
 					}
-					
+
 					return "Secondary Group";
 				}
 			};
@@ -124,8 +124,8 @@ sap.ui.define([
 					text: "{" + oHeaderName + "}"
 				}));
 
-                oItemTemplate.setType(sap.m.ListType.Navigation);
-                // oItemTemplate.press("NavigateToStudentDetails");
+				oItemTemplate.setType(sap.m.ListType.Navigation);
+				// oItemTemplate.press("NavigateToStudentDetails");
 
 				if (current < 4) {
 					oTable.getColumns()[j].setVisible(true);
@@ -137,16 +137,18 @@ sap.ui.define([
 
 			oTable.bindItems("/", oItemTemplate);
 			this.oPersoService.resetPersData();
-			this.oTPC = new TablePersoController("idPersonalize", {
-				table: oTable,
-				persoService: this.oPersoService,
-				hasGrouping: false
-			});
+			if (elem = null) {
+				this.oTPC = new TablePersoController("idPersonalize", {
+					table: oTable,
+					persoService: this.oPersoService,
+					hasGrouping: false
+				});
+			};
 
 			this.oTPC.activate();
 
 		},
-		
+
 		NavigateToStudentDetails: function (oEvent) {
 			alert('Triggering');
 		},
@@ -162,10 +164,10 @@ sap.ui.define([
 			var oTable = that.getView().byId("idProductsTable");
 			oItem = oEvent.getSource();
 			oCtx = oItem.getBindingContext();
-			var path = oEvent.getSource().getBinding("items").getContexts()[oEvent.getSource().indexOfItem(oEvent.getParameters().listItem)].sPath
-			var selectedRow = oTable.getModel().getProperty(path);
-			sap.ui.getCore().navObject = selectedRow;
+			// var selectedRow = oTable.getModel().getProperty(oCtx.sPath);
+			// sap.ui.getCore().navObject = selectedRow;
 			// var path = oCtx.sPath;
+			var path = oEvent.getSource().getBinding("items").getContexts()[oEvent.getSource().indexOfItem(oEvent.getParameters().listItem)].sPath;
 			var newpath = path.replace("/", "prefix");
 
 			this.getRouter().navTo("studentDetails", {
