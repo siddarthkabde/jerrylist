@@ -158,7 +158,7 @@ sap.ui.define([
 		NavigateToStudentDetails: function (oEvent) {
 			var that = this;
 			var oItem, oCtx;
-			var oTable = that.getView().byId("idTable");
+			var oTable = that.getView().byId("idProductsTable");
 			oItem = oEvent.getSource();
 			oCtx = oItem.getBindingContext();
 			var selectedRow = oTable.getModel().getProperty(oCtx.sPath);
