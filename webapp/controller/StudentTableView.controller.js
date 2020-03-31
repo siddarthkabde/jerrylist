@@ -144,6 +144,10 @@ sap.ui.define([
 			this.oTPC.activate();
 
 		},
+		
+		onPersoButtonPressed: function (oEvent) {
+			this.oTPC.openDialog();
+		},
 
 		// method used to navigate to the student details. 
 		NavigateToStudentDetails: function (oEvent) {
