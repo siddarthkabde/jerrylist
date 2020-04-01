@@ -246,11 +246,19 @@ sap.ui.define([
 			var oBinding = oEvent.getSource().getBinding("items");
 			oBinding.filter([oFilter]);
 		},
-		
-		handleClose: function(oEvent) {
+
+		handleClose: function (oEvent) {
 			var aContexts = oEvent.getParameter("selectedContexts");
 			if (aContexts && aContexts.length) {
-				MessageToast.show("You have chosen " + aContexts.map(function(oContext) { return oContext.getObject().Name; }).join(", "));
+				var oForm = that.getView().byId("SimpleFormDisplay480_Trial");
+				aContexts.map(function (oContext) {
+					oForm.byId(oContext.getObject().Text).setVisible("false");
+					return oContext.getObject().Text;
+				}).join(", ")
+
+				MessageToast.show("You have chosen " + aContexts.map(function (oContext) {
+					return oContext.getObject().Text;
+				}).join(", "));
 			} else {
 				MessageToast.show("No new item was selected.");
 			}
