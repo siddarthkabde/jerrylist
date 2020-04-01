@@ -13,7 +13,7 @@
 		<StandardListItem id="_IDEGen_standardlistitem0"
 			title="{Text}"
 			description="{Text}"
-			<!--icon="{ProductPicUrl}"-->
+			icon="{ProductPicUrl}"
 			iconDensityAware="false"
 			iconInset="false"
 			type="Active" />
