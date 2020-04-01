@@ -53,6 +53,7 @@ sap.ui.define([
 				var oText = new sap.m.Text(textid, {
 					text: value
 				});
+				
 				otext.setVisible(true);
 				
 				oForm.addContent(oLabel);
