@@ -49,7 +49,7 @@ sap.ui.define([
 				});
 				oLabel.setVisible(true);
 				
-				textid = "text".concat(string);
+				var textid = "text".concat(string);
 				var oText = new sap.m.Text(textid, {
 					text: value
 				});
