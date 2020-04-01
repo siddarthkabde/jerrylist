@@ -41,25 +41,24 @@ sap.ui.define([
 				columnNames.push({
 					Text: i
 				});
-				
+
 				string = counter.toString();
 				labelid = "label".concat(string);
 				var oLabel = new sap.m.Label(labelid, {
 					text: i
 				});
 				oLabel.setVisible(true);
-				
+
 				var textid = "text".concat(string);
 				var oText = new sap.m.Text(textid, {
 					text: value
 				});
-				
+
 				oText.setVisible(true);
-				
+
 				oForm.addContent(oLabel);
 				oForm.addContent(oText);
-				
-				
+
 				counter++;
 
 			});
@@ -129,6 +128,10 @@ sap.ui.define([
 					this._oDialog = oDialog;
 					this._oDialog.setModel(oStudentsModel);
 					this._configDialog(oButton);
+					var oColumns = oStudentsModel.getData();//
+					$.each(oColumns, function (i, value) {
+						this._oDialog.getItems()[0].setSelected(true);
+					});//
 					this._oDialog.open();
 				}.bind(this));
 			} else {
