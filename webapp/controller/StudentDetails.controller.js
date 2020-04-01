@@ -27,7 +27,7 @@ sap.ui.define([
 			var obj = sap.ui.getCore().navObject;
 			var that = this;
 			var oForm = that.getView().byId("SimpleFormDisplay480_Trial")
-			
+
 			// oStudentsModel.setData(obj);
 			var columnNames = [];
 			$.each(obj, function (i, value) {
@@ -42,9 +42,9 @@ sap.ui.define([
 				});
 				oForm.addContent(oLabel);
 				oForm.addContent(oText);
-				
+
 			});
-			
+
 			oStudentsModel.setData(columnNames);
 
 			// that._showFormFragment("Display");
@@ -235,6 +235,13 @@ sap.ui.define([
 
 			// Set the right form type
 			// this._showFormFragment(bEdit ? "Change" : "Display");
+		},
+
+		handleSearch: function (oEvent) {
+			var sValue = oEvent.getParameter("value");
+			var oFilter = new Filter("Text", FilterOperator.Contains, sValue);
+			var oBinding = oEvent.getSource().getBinding("items");
+			oBinding.filter([oFilter]);
 		},
 
 	});
