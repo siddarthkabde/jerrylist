@@ -4,7 +4,8 @@ sap.ui.define([
 	"sap/ui/core/Fragment",
 	'sap/ui/model/Filter',
 	'sap/ui/model/FilterOperator',
-], function (BaseController, Fragment, Filter, FilterOperator) {
+	'sap/m/MessageToast'
+], function (BaseController, Fragment, Filter, FilterOperator, MessageToast) {
 	"use strict";
 
 	return BaseController.extend("loyolabdn.controller.StudentDetails", {
