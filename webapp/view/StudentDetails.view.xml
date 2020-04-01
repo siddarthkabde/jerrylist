@@ -15,71 +15,71 @@
 				<f:SimpleForm id="SimpleFormDisplay480_Trial" editable="false" layout="ResponsiveGridLayout" title="Student Details" labelSpanXL="4"
 					labelSpanL="4" labelSpanM="4" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0" emptySpanL="0" emptySpanM="0" emptySpanS="0"
 					columnsXL="3" columnsL="2" columnsM="2" singleContainerFullSize="false">
-					<f:content>
-						<core:Title id="_IDEGen_title0" text="Student Details"/>
-						<Label id="_IDEGen_label0" text="Name"/>
-						<Text id="_IDEGen_text0" text="{Name}"/>
-						<Label id="_IDEGen_label1" text="Admission Number"/>
-						<Text id="_IDEGen_text1" text="{Adm}"/>
-						<Label id="_IDEGen_label2" text="Class"/>
-						<Text id="_IDEGen_text2" text="{Class}"/>
-						<Label id="_IDEGen_label3" text="Sex"/>
-						<Text id="_IDEGen_text3" text="{Sex}"/>
-						<Label id="_IDEGen_label4" text="Date of Birth"/>
-						<Text id="_IDEGen_text4" text="{DOB}"/>
-						<Label id="_IDEGen_label5" text="Address"/>
-						<Text id="_IDEGen_text5" text="{Address}"/>
-						<core:Title id="_IDEGen_title1" text="Other Details"/>
-						<Label id="_IDEGen_label6" text="Mode"/>
-						<Text id="_IDEGen_text6" text="{Mode}"/>
-						<Label id="_IDEGen_label7" text="Father Name"/>
-						<Text id="_IDEGen_text7" text="{Father Name}"/>
-						<Label id="_IDEGen_label8" text="Mobile No"/>
-						<Text id="_IDEGen_text8" text="{Cell}"/>
-						<Label id="_IDEGen_label9" text="Old or New"/>
-						<Text id="_IDEGen_text9" text="{Old or New}"/>
-						<Label id="_IDEGen_label10" text="NC/Staff/Next Fee Due"/>
-						<Text id="_IDEGen_text10" text="{NC/Staff/Next Fee Due}"/>
-						<Label id="_IDEGen_label11" text="Month(diary)"/>
-						<Text id="_IDEGen_text11" text="{Month(diary)}"/>
-						<Label id="_IDEGen_label12" text="Bonafide/TC"/>
-						<Text id="_IDEGen_text12" text="{Bonafide/TC}"/>
-						<core:Title id="_IDEGen_title2" text="Fee Details"/>
-						<Label id="_IDEGen_label13" text="Agreeement"/>
-						<Text id="_IDEGen_text13" text="{Agrmnt No.}"/>
-						<Label id="_IDEGen_label14" text="Overall Fees"/>
-						<Text id="_IDEGen_text14" text="{Oerall Fees } INR"/>
-						<Label id="_IDEGen_label15" text="Overall Adj"/>
-						<Text id="_IDEGen_text15" text="{Overall Adj} INR"/>
-						<Label id="_IDEGen_label16" text="Overall Paid"/>
-						<Text id="_IDEGen_text16" text="{Overall Paid} INR"/>
-						<Label id="_IDEGen_label17" text="Overall Due"/>
-						<Text id="_IDEGen_text17" text="{Overall Due} INR"/>
-						<core:Title id="_IDEGen_title3" text="Old dues"/>
-						<Label id="_IDEGen_label18" text="Old Balance"/>
-						<Text id="_IDEGen_text18" text="{Old Bal} INR"/>
-						<Label id="_IDEGen_label19" text="Old Adjusted Balance"/>
-						<Text id="_IDEGen_text19" text="{Old Adj Bal} INR"/>
-						<Label id="_IDEGen_label20" text="Old Paid"/>
-						<Text id="_IDEGen_text20" text="{Old Paid} INR"/>
-						<Label id="_IDEGen_label21" text="Old Due"/>
-						<Text id="_IDEGen_text21" text="{Old Due} INR"/>
-						<core:Title id="_IDEGen_title4" text="2019-20 Fees"/>
-						<Label id="_IDEGen_label22" text="2019-20 Fees"/>
-						<Text id="_IDEGen_text22" text="{2019-20 Fees} INR"/>
-						<Label id="_IDEGen_label23" text="2019-20 Adj Fees"/>
-						<Text id="_IDEGen_text23" text="{2019-20 Adj Fees} INR"/>
-						<Label id="_IDEGen_label24" text="2019-20 Paid"/>
-						<Text id="_IDEGen_text24" text="{2019-20 Paid} INR"/>
-						<Label id="_IDEGen_label25" text="2019-20 Due"/>
-						<Text id="_IDEGen_text25" text="{2019-20 Due} INR"/>
-						<core:Title id="_IDEGen_title5" text="Fee Breakup"/>
-						<Label id="_IDEGen_label26" text="School Fees"/>
-						<Text id="_IDEGen_text26" text="{School Fees} INR"/>
-						<Label id="_IDEGen_label27" text="Bus Fees"/>
-						<Text id="_IDEGen_text27" text="{Bus Fees} INR"/>
-						<Label id="_IDEGen_label28" text="Hostel Fees"/>
-						<Text id="_IDEGen_text28" text="{Hostel Fees} INR"/>
+					<!--<f:content>-->
+					<!--	<core:Title id="_IDEGen_title0" text="Student Details"/>-->
+					<!--	<Label id="_IDEGen_label0" text="Name"/>-->
+					<!--	<Text id="_IDEGen_text0" text="{Name}"/>-->
+					<!--	<Label id="_IDEGen_label1" text="Admission Number"/>-->
+					<!--	<Text id="_IDEGen_text1" text="{Adm}"/>-->
+					<!--	<Label id="_IDEGen_label2" text="Class"/>-->
+					<!--	<Text id="_IDEGen_text2" text="{Class}"/>-->
+					<!--	<Label id="_IDEGen_label3" text="Sex"/>-->
+					<!--	<Text id="_IDEGen_text3" text="{Sex}"/>-->
+					<!--	<Label id="_IDEGen_label4" text="Date of Birth"/>-->
+					<!--	<Text id="_IDEGen_text4" text="{DOB}"/>-->
+					<!--	<Label id="_IDEGen_label5" text="Address"/>-->
+					<!--	<Text id="_IDEGen_text5" text="{Address}"/>-->
+					<!--	<core:Title id="_IDEGen_title1" text="Other Details"/>-->
+					<!--	<Label id="_IDEGen_label6" text="Mode"/>-->
+					<!--	<Text id="_IDEGen_text6" text="{Mode}"/>-->
+					<!--	<Label id="_IDEGen_label7" text="Father Name"/>-->
+					<!--	<Text id="_IDEGen_text7" text="{Father Name}"/>-->
+					<!--	<Label id="_IDEGen_label8" text="Mobile No"/>-->
+					<!--	<Text id="_IDEGen_text8" text="{Cell}"/>-->
+					<!--	<Label id="_IDEGen_label9" text="Old or New"/>-->
+					<!--	<Text id="_IDEGen_text9" text="{Old or New}"/>-->
+					<!--	<Label id="_IDEGen_label10" text="NC/Staff/Next Fee Due"/>-->
+					<!--	<Text id="_IDEGen_text10" text="{NC/Staff/Next Fee Due}"/>-->
+					<!--	<Label id="_IDEGen_label11" text="Month(diary)"/>-->
+					<!--	<Text id="_IDEGen_text11" text="{Month(diary)}"/>-->
+					<!--	<Label id="_IDEGen_label12" text="Bonafide/TC"/>-->
+					<!--	<Text id="_IDEGen_text12" text="{Bonafide/TC}"/>-->
+					<!--	<core:Title id="_IDEGen_title2" text="Fee Details"/>-->
+					<!--	<Label id="_IDEGen_label13" text="Agreeement"/>-->
+					<!--	<Text id="_IDEGen_text13" text="{Agrmnt No.}"/>-->
+					<!--	<Label id="_IDEGen_label14" text="Overall Fees"/>-->
+					<!--	<Text id="_IDEGen_text14" text="{Oerall Fees } INR"/>-->
+					<!--	<Label id="_IDEGen_label15" text="Overall Adj"/>-->
+					<!--	<Text id="_IDEGen_text15" text="{Overall Adj} INR"/>-->
+					<!--	<Label id="_IDEGen_label16" text="Overall Paid"/>-->
+					<!--	<Text id="_IDEGen_text16" text="{Overall Paid} INR"/>-->
+					<!--	<Label id="_IDEGen_label17" text="Overall Due"/>-->
+					<!--	<Text id="_IDEGen_text17" text="{Overall Due} INR"/>-->
+					<!--	<core:Title id="_IDEGen_title3" text="Old dues"/>-->
+					<!--	<Label id="_IDEGen_label18" text="Old Balance"/>-->
+					<!--	<Text id="_IDEGen_text18" text="{Old Bal} INR"/>-->
+					<!--	<Label id="_IDEGen_label19" text="Old Adjusted Balance"/>-->
+					<!--	<Text id="_IDEGen_text19" text="{Old Adj Bal} INR"/>-->
+					<!--	<Label id="_IDEGen_label20" text="Old Paid"/>-->
+					<!--	<Text id="_IDEGen_text20" text="{Old Paid} INR"/>-->
+					<!--	<Label id="_IDEGen_label21" text="Old Due"/>-->
+					<!--	<Text id="_IDEGen_text21" text="{Old Due} INR"/>-->
+					<!--	<core:Title id="_IDEGen_title4" text="2019-20 Fees"/>-->
+					<!--	<Label id="_IDEGen_label22" text="2019-20 Fees"/>-->
+					<!--	<Text id="_IDEGen_text22" text="{2019-20 Fees} INR"/>-->
+					<!--	<Label id="_IDEGen_label23" text="2019-20 Adj Fees"/>-->
+					<!--	<Text id="_IDEGen_text23" text="{2019-20 Adj Fees} INR"/>-->
+					<!--	<Label id="_IDEGen_label24" text="2019-20 Paid"/>-->
+					<!--	<Text id="_IDEGen_text24" text="{2019-20 Paid} INR"/>-->
+					<!--	<Label id="_IDEGen_label25" text="2019-20 Due"/>-->
+					<!--	<Text id="_IDEGen_text25" text="{2019-20 Due} INR"/>-->
+					<!--	<core:Title id="_IDEGen_title5" text="Fee Breakup"/>-->
+					<!--	<Label id="_IDEGen_label26" text="School Fees"/>-->
+					<!--	<Text id="_IDEGen_text26" text="{School Fees} INR"/>-->
+					<!--	<Label id="_IDEGen_label27" text="Bus Fees"/>-->
+					<!--	<Text id="_IDEGen_text27" text="{Bus Fees} INR"/>-->
+					<!--	<Label id="_IDEGen_label28" text="Hostel Fees"/>-->
+					<!--	<Text id="_IDEGen_text28" text="{Hostel Fees} INR"/>-->
 					</f:content>
 				</f:SimpleForm>
 			</VBox>

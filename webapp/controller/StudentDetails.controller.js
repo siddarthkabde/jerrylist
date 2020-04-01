@@ -24,11 +24,27 @@ sap.ui.define([
 			var newpath = sObjectId.replace("prefix", "/");
 
 			var obj = sap.ui.getCore().navObject;
+			var that = this;
+			var oForm = that.getView().byId("SimpleFormDisplay480_Trial")
 			var oStudentsModel = new sap.ui.model.json.JSONModel();
 			oStudentsModel.setData(obj);
+			var testNames = [];
+			$.each(obj, function (i, value) {
+				testNames.push({
+					Text: obj[i]
+				});
+				var oLabel = new sap.m.Label({
+					text: i
+				});
+				var oText = new sap.m.Text({
+					text: value
+				});
+				oForm.addContent(oLabel);
+				oForm.addContent(oText);
+			});
 
 			// that._showFormFragment("Display");
-			that.getView().byId("SimpleFormDisplay480_Trial").setModel(oStudentsModel).bindElement("/");
+			// that.getView().byId("SimpleFormDisplay480_Trial").setModel(oStudentsModel).bindElement("/");
 
 			var marks = 1500;
 			var overalldues = obj["Overall Due"];
