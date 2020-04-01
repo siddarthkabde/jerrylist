@@ -1,8 +1,10 @@
 var oStudentsModel = new sap.ui.model.json.JSONModel();
 sap.ui.define([
 	"./BaseController",
-	"sap/ui/core/Fragment"
-], function (BaseController, Fragment) {
+	"sap/ui/core/Fragment",
+	'sap/ui/model/Filter',
+	'sap/ui/model/FilterOperator',
+], function (BaseController, Fragment, Filter, FilterOperator) {
 	"use strict";
 
 	return BaseController.extend("loyolabdn.controller.StudentDetails", {
