@@ -12,7 +12,6 @@
 		}" >
 		<StandardListItem id="_IDEGen_standardlistitem0"
 			title="{Text}"
-			selected = "true"
 			description="{Text}"
 			icon="{ProductPicUrl}"
 			iconDensityAware="false"
