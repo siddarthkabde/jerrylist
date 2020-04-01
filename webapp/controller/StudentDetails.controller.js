@@ -28,10 +28,10 @@ sap.ui.define([
 			var that = this;
 			var oForm = that.getView().byId("SimpleFormDisplay480_Trial")
 			
-			oStudentsModel.setData(obj);
-			this.columnNames = [];
+			// oStudentsModel.setData(obj);
+			var columnNames = [];
 			$.each(obj, function (i, value) {
-				this.columnNames.push({
+				columnNames.push({
 					Text: obj[i]
 				});
 				var oLabel = new sap.m.Label({
@@ -44,6 +44,8 @@ sap.ui.define([
 				oForm.addContent(oText);
 				
 			});
+			
+			oStudentsModel.setData(columnNames);
 
 			// that._showFormFragment("Display");
 			// that.getView().byId("SimpleFormDisplay480_Trial").setModel(oStudentsModel).bindElement("/");
