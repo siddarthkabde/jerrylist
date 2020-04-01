@@ -54,7 +54,7 @@ sap.ui.define([
 					text: value
 				});
 				
-				otext.setVisible(true);
+				oText.setVisible(true);
 				
 				oForm.addContent(oLabel);
 				oForm.addContent(oText);
