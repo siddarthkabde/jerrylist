@@ -248,11 +248,12 @@ sap.ui.define([
 		},
 
 		handleClose: function (oEvent) {
+			var that = this;
 			var aContexts = oEvent.getParameter("selectedContexts");
 			if (aContexts && aContexts.length) {
 				var oForm = that.getView().byId("SimpleFormDisplay480_Trial");
 				aContexts.map(function (oContext) {
-					oForm.byId(oContext.getObject().Text).setVisible("false");
+					var colname = oContext.getObject().Text;
 					return oContext.getObject().Text;
 				}).join(", ")
 
