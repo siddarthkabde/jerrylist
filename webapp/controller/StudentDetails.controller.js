@@ -33,22 +33,33 @@ sap.ui.define([
 
 			// oStudentsModel.setData(obj);
 			var columnNames = [];
+			var counter = 0;
+			var string;
+			var labelid;
+			var textid;
 			$.each(obj, function (i, value) {
 				columnNames.push({
 					Text: i
 				});
 				
-				var labelid = i.concat("label");
+				string = counter.toString();
+				labelid = "label".concat(string);
 				var oLabel = new sap.m.Label(labelid, {
 					text: i
 				});
+				oLabel.setVisible(true);
 				
-				var textid = i.concat("text");
+				textid = "text".concat(string);
 				var oText = new sap.m.Text(textid, {
 					text: value
 				});
+				otext.setVisible(true);
+				
 				oForm.addContent(oLabel);
 				oForm.addContent(oText);
+				
+				
+				counter++;
 
 			});
 
