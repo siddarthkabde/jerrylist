@@ -28,9 +28,9 @@ sap.ui.define([
 			var oForm = that.getView().byId("SimpleFormDisplay480_Trial")
 			var oStudentsModel = new sap.ui.model.json.JSONModel();
 			oStudentsModel.setData(obj);
-			var testNames = [];
+			this.columnNames = [];
 			$.each(obj, function (i, value) {
-				testNames.push({
+				this.columnNames.push({
 					Text: obj[i]
 				});
 				var oLabel = new sap.m.Label({
@@ -41,6 +41,7 @@ sap.ui.define([
 				});
 				oForm.addContent(oLabel);
 				oForm.addContent(oText);
+				
 			});
 
 			// that._showFormFragment("Display");
