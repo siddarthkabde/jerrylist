@@ -11,9 +11,9 @@
 			path: '/'
 		}" >
 		<StandardListItem id="_IDEGen_standardlistitem0"
-			title="{Name}"
-			description="{ProductId}"
-			icon="{ProductPicUrl}"
+			title="{Text}"
+			description="{Text}"
+			<!--icon="{ProductPicUrl}"-->
 			iconDensityAware="false"
 			iconInset="false"
 			type="Active" />
