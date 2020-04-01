@@ -1,3 +1,4 @@
+var oStudentsModel = new sap.ui.model.json.JSONModel();
 sap.ui.define([
 	"./BaseController",
 	"sap/ui/core/Fragment"
@@ -26,7 +27,7 @@ sap.ui.define([
 			var obj = sap.ui.getCore().navObject;
 			var that = this;
 			var oForm = that.getView().byId("SimpleFormDisplay480_Trial")
-			var oStudentsModel = new sap.ui.model.json.JSONModel();
+			
 			oStudentsModel.setData(obj);
 			this.columnNames = [];
 			$.each(obj, function (i, value) {
@@ -105,7 +106,7 @@ sap.ui.define([
 					controller: this
 				}).then(function (oDialog) {
 					this._oDialog = oDialog;
-					this._oDialog.setModel(this.getView().getModel());
+					this._oDialog.setModel(oStudentsModel);
 					this._configDialog(oButton);
 					this._oDialog.open();
 				}.bind(this));
