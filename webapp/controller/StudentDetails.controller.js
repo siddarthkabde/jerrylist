@@ -37,10 +37,14 @@ sap.ui.define([
 				columnNames.push({
 					Text: i
 				});
-				var oLabel = new sap.m.Label({
+				
+				var labelid = i.concat("label");
+				var oLabel = new sap.m.Label(labelid, {
 					text: i
 				});
-				var oText = new sap.m.Text({
+				
+				var textid = i.concat("text");
+				var oText = new sap.m.Text(textid, {
 					text: value
 				});
 				oForm.addContent(oLabel);
