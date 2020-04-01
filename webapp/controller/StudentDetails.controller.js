@@ -32,7 +32,7 @@ sap.ui.define([
 			var columnNames = [];
 			$.each(obj, function (i, value) {
 				columnNames.push({
-					Text: obj[i]
+					Text: value
 				});
 				var oLabel = new sap.m.Label({
 					text: i
