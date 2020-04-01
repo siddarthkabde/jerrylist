@@ -80,7 +80,7 @@
 					<!--	<Text id="_IDEGen_text27" text="{Bus Fees} INR"/>-->
 					<!--	<Label id="_IDEGen_label28" text="Hostel Fees"/>-->
 					<!--	<Text id="_IDEGen_text28" text="{Hostel Fees} INR"/>-->
-					</f:content>
+					<!--</f:content>-->
 				</f:SimpleForm>
 			</VBox>
 			<core:HTML id="_IDEGen_html0" content="&lt;div id=&quot;contain&quot; style=&quot;width:100%; height:400px;&quot;&gt;&lt;/div&gt;"></core:HTML>
