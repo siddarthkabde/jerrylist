@@ -38,7 +38,7 @@ sap.ui.define([
 			var labelid;
 			var textid;
 			
-			oForm.clearAggreation
+
 			$.each(obj, function (i, value) {
 				columnNames.push({
 					Text: i
