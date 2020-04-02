@@ -29,9 +29,9 @@ sap.ui.define([
 
 			var obj = sap.ui.getCore().navObject;
 			var that = this;
-			oForm = null;
-			var oForm = that.getView().byId("SimpleFormDisplay480_Trial")
-
+			
+			var oForm = that.getView().byId("SimpleFormDisplay480_Trial");
+			oForm.destroyContent();
 			oStudentsModel.setData(obj);
 			var columnNames = [];
 			var counter = 0;
