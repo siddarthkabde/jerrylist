@@ -29,15 +29,15 @@ sap.ui.define([
 
 			var obj = sap.ui.getCore().navObject;
 			var that = this;
-			var oForm = that.getView().byId("SimpleFormDisplay480_Trial")
 			oForm = null;
+			var oForm = that.getView().byId("SimpleFormDisplay480_Trial")
+
 			oStudentsModel.setData(obj);
 			var columnNames = [];
 			var counter = 0;
 			var string;
 			var labelid;
 			var textid;
-			
 
 			$.each(obj, function (i, value) {
 				columnNames.push({
@@ -132,12 +132,12 @@ sap.ui.define([
 					this._oDialog = oDialog;
 					this._oDialog.setModel(oStudentsModel);
 					this._configDialog(oButton);
-					var oColumns = oStudentsModel.getData();//
+					var oColumns = oStudentsModel.getData(); //
 					var that = this;
 					var oItems = this._oDialog.getItems()
 					$.each(oItems, function (i, value) {
 						that._oDialog.getItems()[i].setSelected(true);
-					});//
+					}); //
 					this._oDialog.open();
 				}.bind(this));
 			} else {
