@@ -34,7 +34,7 @@ sap.ui.define([
 			oForm.destroyContent();
 			oStudentsModel.setData(obj);
 			var columnNames = [];
-			var counter = 0;
+			var counter = 1;
 			var string;
 			var labelid;
 			var textid;
