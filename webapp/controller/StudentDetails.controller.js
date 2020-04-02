@@ -128,7 +128,7 @@ sap.ui.define([
 				}).then(function (oDialog) {
 					that = this;
 					this._oDialog = oDialog;
-					// this._oDialog.setModel(oStudentsModel);
+					this._oDialog.setModel(oStudentsModel);
 					this._configDialog(oButton);
 					var oColumns = oStudentsModel.getData();//
 					var that = this;
@@ -138,9 +138,6 @@ sap.ui.define([
 					});//
 					this._oDialog.open();
 				}.bind(this));
-				
-				that._oDialog.setModel(oStudentsModel);
-				
 			} else {
 				this._configDialog(oButton);
 				this._oDialog.open();
