@@ -44,13 +44,13 @@ sap.ui.define([
 
 				string = counter.toString();
 				labelid = "label".concat(string);
-				var oLabel = new sap.m.Label(labelid, {
+				var oLabel = new sap.m.Label({
 					text: i
 				});
 				oLabel.setVisible(true);
 
 				var textid = "text".concat(string);
-				var oText = new sap.m.Text(textid, {
+				var oText = new sap.m.Text({
 					text: value
 				});
 
