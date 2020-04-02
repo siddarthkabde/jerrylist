@@ -8,14 +8,14 @@
 		confirm="handleClose"
 		cancel="handleClose"
 		items="{
-			path: '/'
+			path: 'oStudentsModel>/'
 		}" >
 		<StandardListItem id="_IDEGen_standardlistitem0"
-			title="{Text}"
-			description="{Text}"
+			title="{oStudentsModel>Text}"
+			description="{oStudentsModel>Text}"
 			icon="{ProductPicUrl}"
 			iconDensityAware="false"
-			iconInset="false"
+			iconInset="true"
 			type="Active" />
 	</SelectDialog>
 </core:FragmentDefinition>
