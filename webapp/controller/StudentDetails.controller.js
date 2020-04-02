@@ -11,6 +11,22 @@ sap.ui.define([
 	return BaseController.extend("loyolabdn.controller.StudentDetails", {
 		onInit: function () {
 
+			var oRouter = this.getRouter();
+			oRouter.getRoute("studentDetails").attachMatched(this._onRouteMatched, this);
+			// Set the initial form to be the display one
+			var oView = this.getView();
+			// this._showFormFragment("Display");
+		},
+
+		_onRouteMatched: function (oEvent) {
+			var that = this;
+			var oArgs, oView;
+
+			oArgs = oEvent.getParameter("arguments");
+			oView = this.getView();
+			var sObjectId = oEvent.getParameter("arguments").Adm;
+			var newpath = sObjectId.replace("prefix", "/");
+
 			var obj = sap.ui.getCore().navObject;
 			var that = this;
 			var oForm = that.getView().byId("SimpleFormDisplay480_Trial")
@@ -48,60 +64,6 @@ sap.ui.define([
 			});
 
 			oStudentsModel.setData(columnNames);
-
-			var oRouter = this.getRouter();
-			oRouter.getRoute("studentDetails").attachMatched(this._onRouteMatched, this);
-			// Set the initial form to be the display one
-			var oView = this.getView();
-			// this._showFormFragment("Display");
-		},
-
-		_onRouteMatched: function (oEvent) {
-			var that = this;
-			var oArgs, oView;
-
-			oArgs = oEvent.getParameter("arguments");
-			oView = this.getView();
-			var sObjectId = oEvent.getParameter("arguments").Adm;
-			var newpath = sObjectId.replace("prefix", "/");
-
-			var obj = sap.ui.getCore().navObject;
-			// var that = this;
-			// var oForm = that.getView().byId("SimpleFormDisplay480_Trial")
-
-			// // oStudentsModel.setData(obj);
-			// var columnNames = [];
-			// var counter = 0;
-			// var string;
-			// var labelid;
-			// var textid;
-			// $.each(obj, function (i, value) {
-			// 	columnNames.push({
-			// 		Text: i
-			// 	});
-
-			// 	string = counter.toString();
-			// 	labelid = "label".concat(string);
-			// 	var oLabel = new sap.m.Label(labelid, {
-			// 		text: i
-			// 	});
-			// 	oLabel.setVisible(true);
-
-			// 	var textid = "text".concat(string);
-			// 	var oText = new sap.m.Text(textid, {
-			// 		text: value
-			// 	});
-
-			// 	oText.setVisible(true);
-
-			// 	oForm.addContent(oLabel);
-			// 	oForm.addContent(oText);
-
-			// 	counter++;
-
-			// });
-
-			// oStudentsModel.setData(columnNames);
 
 			// that._showFormFragment("Display");
 			// that.getView().byId("SimpleFormDisplay480_Trial").setModel(oStudentsModel).bindElement("/");
@@ -168,12 +130,12 @@ sap.ui.define([
 					this._oDialog = oDialog;
 					this._oDialog.setModel(oStudentsModel);
 					this._configDialog(oButton);
-					var oColumns = oStudentsModel.getData(); //
+					var oColumns = oStudentsModel.getData();//
 					var that = this;
 					var oItems = this._oDialog.getItems()
 					$.each(oItems, function (i, value) {
 						that._oDialog.getItems()[i].setSelected(true);
-					}); //
+					});//
 					this._oDialog.open();
 				}.bind(this));
 			} else {
