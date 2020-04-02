@@ -131,7 +131,8 @@ sap.ui.define([
 					var oColumns = oStudentsModel.getData();//
 					var that = this;
 					$.each(oColumns, function (i, value) {
-						that._oDialog.getItems()[i].setSelected(true);
+						// that._oDialog.getItems()[i].setSelected(true);
+						// that._oDialog.getModel().getData()[i].se       
 					});//
 					this._oDialog.open();
 				}.bind(this));
