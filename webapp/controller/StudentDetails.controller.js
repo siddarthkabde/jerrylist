@@ -121,10 +121,12 @@ sap.ui.define([
 		handleSelectDialogPress: function (oEvent) {
 			var oButton = oEvent.getSource();
 			if (!this._oDialog) {
+				var that;
 				Fragment.load({
 					name: "loyolabdn.fragments.Dialog",
 					controller: this
 				}).then(function (oDialog) {
+					that = this;
 					this._oDialog = oDialog;
 					// this._oDialog.setModel(oStudentsModel);
 					this._configDialog(oButton);
@@ -137,7 +139,7 @@ sap.ui.define([
 					this._oDialog.open();
 				}.bind(this));
 				
-				this._oDialog.setModel(oStudentsModel);
+				that._oDialog.setModel(oStudentsModel);
 				
 			} else {
 				this._configDialog(oButton);
