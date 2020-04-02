@@ -31,7 +31,7 @@ sap.ui.define([
 			var that = this;
 			var oForm = that.getView().byId("SimpleFormDisplay480_Trial")
 
-			// oStudentsModel.setData(obj);
+			oStudentsModel.setData(obj);
 			var columnNames = [];
 			var counter = 0;
 			var string;
