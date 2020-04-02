@@ -16,7 +16,6 @@
 			icon="{ProductPicUrl}"
 			iconDensityAware="false"
 			iconInset="false"
-			selected=true
 			type="Detail" />
 	</SelectDialog>
 </core:FragmentDefinition>
