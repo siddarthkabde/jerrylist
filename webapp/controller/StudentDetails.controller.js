@@ -30,13 +30,15 @@ sap.ui.define([
 			var obj = sap.ui.getCore().navObject;
 			var that = this;
 			var oForm = that.getView().byId("SimpleFormDisplay480_Trial")
-
+			oForm = null;
 			oStudentsModel.setData(obj);
 			var columnNames = [];
 			var counter = 0;
 			var string;
 			var labelid;
 			var textid;
+			
+			oForm.clearAggreation
 			$.each(obj, function (i, value) {
 				columnNames.push({
 					Text: i
