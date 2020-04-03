@@ -151,18 +151,18 @@ sap.ui.define([
 
 		_configDialog: function (oButton) {
 			// Multi-select if required
-			// var bMultiSelect = !!oButton.data("multi");
+			var bMultiSelect = !!oButton.data("multi");
 			this._oDialog.setMultiSelect(bMultiSelect);
 
 			var sCustomConfirmButtonText = oButton.data("confirmButtonText");
 			this._oDialog.setConfirmButtonText(sCustomConfirmButtonText);
 
 			// Remember selections if required
-			// var bRemember = !!oButton.data("remember");
+			var bRemember = !!oButton.data("remember");
 			this._oDialog.setRememberSelections(bRemember);
 
 			//add Clear button if needed
-			// var bShowClearButton = !!oButton.data("showClearButton");
+			var bShowClearButton = !!oButton.data("showClearButton");
 			this._oDialog.setShowClearButton(bShowClearButton);
 
 			// Set growing property
@@ -176,11 +176,11 @@ sap.ui.define([
 			}
 
 			// Set draggable property
-			// var bDraggable = oButton.data("draggable");
+			var bDraggable = oButton.data("draggable");
 			this._oDialog.setDraggable(bDraggable == "true");
 
 			// Set draggable property
-			// var bResizable = oButton.data("resizable");
+			var bResizable = oButton.data("resizable");
 			this._oDialog.setResizable(bResizable == "true");
 
 			// Set style classes
