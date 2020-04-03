@@ -33,6 +33,7 @@ sap.ui.define([
 			var oForm = that.getView().byId("SimpleFormDisplay480_Trial");
 			oForm.destroyContent();
 			oStudentsModel.setData(obj);
+			
 			var columnNames = [];
 			var counter = 1;
 			var string;
@@ -66,6 +67,7 @@ sap.ui.define([
 			});
 
 			oStudentsModel.setData(columnNames);
+			this.getView().setModel(oStudentsModel);
 
 			// that._showFormFragment("Display");
 			// that.getView().byId("SimpleFormDisplay480_Trial").setModel(oStudentsModel).bindElement("/");
@@ -130,7 +132,7 @@ sap.ui.define([
 				}).then(function (oDialog) {
 					that = this;
 					this._oDialog = oDialog;
-					this._oDialog.setModel(oStudentsModel);
+					this._oDialog.setModel(this.getView().getModel());
 					this._configDialog(oButton);
 					var oColumns = oStudentsModel.getData(); //
 					var that = this;
