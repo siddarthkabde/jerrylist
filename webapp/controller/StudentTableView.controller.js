@@ -16,9 +16,38 @@ sap.ui.define([
 	return BaseController.extend("loyolabdn.controller.StudentTableView", {
 		// on Init method. 
 		onInit: function () {
-			
+
 			// Keeps reference to any of the created sap.m.ViewSettingsDialog-s in this sample
 			this._mViewSettingsDialogs = {};
+
+			this.mGroupFunctions = {
+				SupplierName: function (oContext) {
+					var name = oContext.getProperty("SupplierName");
+					return {
+						key: Class,
+						text: Class
+					};
+				},
+				Price: function (oContext) {
+					var price = oContext.getProperty("Price");
+					var currencyCode = oContext.getProperty("CurrencyCode");
+					var key, text;
+					if (price <= 100) {
+						key = "LE100";
+						text = "100 " + currencyCode + " or less";
+					} else if (price <= 1000) {
+						key = "BT100-1000";
+						text = "Between 100 and 1000 " + currencyCode;
+					} else {
+						key = "GT1000";
+						text = "More than 1000 " + currencyCode;
+					}
+					return {
+						key: key,
+						text: text
+					};
+				}
+			};
 
 			// start of code
 			var oModel = new sap.ui.model.json.JSONModel();
@@ -142,7 +171,7 @@ sap.ui.define([
 				this.oTPC.activate();
 			}
 
-	// end of code
+			// end of code
 
 			var oRouter = this.getRouter();
 			oRouter.getRoute("employeeList").attachMatched(this._onRouteMatched, this);
@@ -154,7 +183,7 @@ sap.ui.define([
 			oArgs = oEvent.getParameter("arguments");
 			oView = this.getView();
 			var oStore1 = jQuery.sap.storage(jQuery.sap.storage.Type.local);
-			
+
 			// var oModel = new sap.ui.model.json.JSONModel();
 			// oModel.loadData("/products/test", {}, false);
 			// var oFinalResult = oModel.getData();
@@ -321,8 +350,8 @@ sap.ui.define([
 			var oBinding = oTable.getBinding("items");
 			oBinding.filter(allFilter);
 		},
-		
-			createViewSettingsDialog: function (sDialogFragmentName) {
+
+		createViewSettingsDialog: function (sDialogFragmentName) {
 			var oDialog = this._mViewSettingsDialogs[sDialogFragmentName];
 
 			if (!oDialog) {
@@ -365,7 +394,6 @@ sap.ui.define([
 				bDescending,
 				vGroup,
 				aGroups = [];
-				
 
 			if (mParams.groupItem) {
 				sPath = mParams.groupItem.getKey();
@@ -374,7 +402,7 @@ sap.ui.define([
 				aGroups.push(new Sorter(sPath, bDescending, vGroup));
 				// apply the selected group settings
 				oBinding.sort(aGroups);
-				
+
 			}
 		}
 	});
