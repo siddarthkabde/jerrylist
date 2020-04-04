@@ -16,6 +16,9 @@ sap.ui.define([
 			// Set the initial form to be the display one
 			var oView = this.getView();
 			// this._showFormFragment("Display");
+
+			// Keeps reference to any of the created sap.m.ViewSettingsDialog-s in this sample
+			this._mViewSettingsDialogs = {};
 		},
 
 		_onRouteMatched: function (oEvent) {
@@ -29,11 +32,11 @@ sap.ui.define([
 
 			var obj = sap.ui.getCore().navObject;
 			var that = this;
-			
+
 			var oForm = that.getView().byId("SimpleFormDisplay480_Trial");
 			oForm.destroyContent();
 			oStudentsModel.setData(obj);
-			
+
 			var columnNames = [];
 			var counter = 1;
 			var string;
@@ -139,7 +142,7 @@ sap.ui.define([
 					var oItems = this._oDialog.getItems()
 					$.each(oItems, function (i, value) {
 						that._oDialog.getItems()[i].setSelected(true);
-					}); //
+					});
 					this._oDialog.open();
 				}.bind(this));
 			} else {
@@ -151,15 +154,15 @@ sap.ui.define([
 
 		_configDialog: function (oButton) {
 			// Multi-select if required
-			var bMultiSelect = !!oButton.data("multi");
-			this._oDialog.setMultiSelect(bMultiSelect);
+			// var bMultiSelect = !!oButton.data("multi");
+			this._oDialog.setMultiSelect(true);
 
 			var sCustomConfirmButtonText = oButton.data("confirmButtonText");
 			this._oDialog.setConfirmButtonText(sCustomConfirmButtonText);
 
 			// Remember selections if required
-			var bRemember = !!oButton.data("remember");
-			this._oDialog.setRememberSelections(bRemember);
+			// var bRemember = !!oButton.data("remember");
+			this._oDialog.setRememberSelections(true);
 
 			//add Clear button if needed
 			var bShowClearButton = !!oButton.data("showClearButton");
@@ -292,6 +295,60 @@ sap.ui.define([
 			}
 			oEvent.getSource().getBinding("items").filter([]);
 		},
+
+		createViewSettingsDialog: function (sDialogFragmentName) {
+			var oDialog = this._mViewSettingsDialogs[sDialogFragmentName];
+
+			if (!oDialog) {
+				oDialog = sap.ui.xmlfragment(sDialogFragmentName, this);
+				this._mViewSettingsDialogs[sDialogFragmentName] = oDialog;
+
+				if (Device.system.desktop) {
+					oDialog.addStyleClass("sapUiSizeCompact");
+				}
+			}
+			return oDialog;
+		},
+
+		// Group Settings Implementation. 
+		handleGroupButtonPressed: function () {
+			this.createViewSettingsDialog("loyolabdn.fragments.GroupDialog").open();
+		},
+
+		handleSortDialogConfirm: function (oEvent) {
+			var oTable = this.byId("idProductsTable"),
+				mParams = oEvent.getParameters(),
+				oBinding = oTable.getBinding("items"),
+				sPath,
+				bDescending,
+				aSorters = [];
+
+			sPath = mParams.sortItem.getKey();
+			bDescending = mParams.sortDescending;
+			aSorters.push(new Sorter(sPath, bDescending));
+
+			// apply the selected sort and group settings
+			oBinding.sort(aSorters);
+		},
+
+		handleGroupDialogConfirm: function (oEvent) {
+			var oTable = this.byId("idProductsTable"),
+				mParams = oEvent.getParameters(),
+				oBinding = oTable.getBinding("items"),
+				sPath,
+				bDescending,
+				vGroup,
+				aGroups = [];
+
+			if (mParams.groupItem) {
+				sPath = mParams.groupItem.getKey();
+				bDescending = mParams.groupDescending;
+				vGroup = this.mGroupFunctions[sPath];
+				aGroups.push(new Sorter(sPath, bDescending, vGroup));
+				// apply the selected group settings
+				oBinding.sort(aGroups);
+			}
+		}
 
 	});
 });
