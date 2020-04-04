@@ -24,7 +24,7 @@ sap.ui.define([
 			this._mViewSettingsDialogs = {};
 
 			this.mGroupFunctions = {
-				SupplierName: function (oContext) {
+				Class: function (oContext) {
 					var name = oContext.getProperty("SupplierName");
 					return {
 						key: Class,
