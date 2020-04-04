@@ -318,6 +318,62 @@ sap.ui.define([
 			var oBinding = oTable.getBinding("items");
 			oBinding.filter(allFilter);
 		},
+		
+			createViewSettingsDialog: function (sDialogFragmentName) {
+			var oDialog = this._mViewSettingsDialogs[sDialogFragmentName];
+
+			if (!oDialog) {
+				oDialog = sap.ui.xmlfragment(sDialogFragmentName, this);
+				this._mViewSettingsDialogs[sDialogFragmentName] = oDialog;
+
+				if (Device.system.desktop) {
+					oDialog.addStyleClass("sapUiSizeCompact");
+				}
+			}
+			return oDialog;
+		},
+
+		// Group Settings Implementation. 
+		handleGroupButtonPressed: function () {
+			this.createViewSettingsDialog("loyolabdn.fragments.GroupDialog").open();
+		},
+
+		handleSortDialogConfirm: function (oEvent) {
+			var oTable = this.byId("idProductsTable"),
+				mParams = oEvent.getParameters(),
+				oBinding = oTable.getBinding("items"),
+				sPath,
+				bDescending,
+				aSorters = [];
+
+			sPath = mParams.sortItem.getKey();
+			bDescending = mParams.sortDescending;
+			aSorters.push(new Sorter(sPath, bDescending));
+
+			// apply the selected sort and group settings
+			oBinding.sort(aSorters);
+		},
+
+		handleGroupDialogConfirm: function (oEvent) {
+			var oTable = this.byId("idProductsTable"),
+				mParams = oEvent.getParameters(),
+				oBinding = oTable.getBinding("items"),
+				sPath,
+				bDescending,
+				vGroup,
+				aGroups = [];
+				
+
+			if (mParams.groupItem) {
+				sPath = mParams.groupItem.getKey();
+				bDescending = mParams.groupDescending;
+				vGroup = this.mGroupFunctions[sPath];
+				aGroups.push(new Sorter(sPath, bDescending, vGroup));
+				// apply the selected group settings
+				oBinding.sort(aGroups);
+				
+			}
+		}
 	});
 
 });
