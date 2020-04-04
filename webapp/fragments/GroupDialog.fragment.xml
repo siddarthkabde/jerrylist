@@ -8,4 +8,5 @@
 			<ViewSettingsItem id="_IDEGen_viewsettingsitem1" text="Address" key="Address" />
 		</groupItems>
 	</ViewSettingsDialog>
+	
 </core:FragmentDefinition>
