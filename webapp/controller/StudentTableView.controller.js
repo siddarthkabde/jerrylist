@@ -151,6 +151,7 @@ sap.ui.define([
 			oArgs = oEvent.getParameter("arguments");
 			oView = this.getView();
 			var oStore1 = jQuery.sap.storage(jQuery.sap.storage.Type.local);
+			
 			// var oModel = new sap.ui.model.json.JSONModel();
 			// oModel.loadData("/products/test", {}, false);
 			// var oFinalResult = oModel.getData();

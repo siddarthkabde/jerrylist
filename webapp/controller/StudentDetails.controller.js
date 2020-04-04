@@ -339,6 +339,7 @@ sap.ui.define([
 				bDescending,
 				vGroup,
 				aGroups = [];
+				
 
 			if (mParams.groupItem) {
 				sPath = mParams.groupItem.getKey();
