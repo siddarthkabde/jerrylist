@@ -16,6 +16,9 @@ sap.ui.define([
 	return BaseController.extend("loyolabdn.controller.StudentTableView", {
 		// on Init method. 
 		onInit: function () {
+			
+			// Keeps reference to any of the created sap.m.ViewSettingsDialog-s in this sample
+			this._mViewSettingsDialogs = {};
 
 			// start of code
 			var oModel = new sap.ui.model.json.JSONModel();
