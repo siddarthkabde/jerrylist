@@ -8,9 +8,12 @@ sap.ui.define([
 	"sap/m/Label",
 	"sap/m/Text",
 	"sap/m/TablePersoController",
-	"sap/m/ListType"
+	"sap/m/ListType",
+	'sap/ui/model/Sorter',
+	'sap/ui/Device'
 
-], function (BaseController, Filter, FilterOperator, JSONModel, Column, ColumnListItem, Label, Text, TablePersoController, ListType) {
+], function (BaseController, Filter, FilterOperator, JSONModel, Column, ColumnListItem, Label, Text, TablePersoController, ListType,
+	Sorter, Device) {
 	"use strict";
 
 	return BaseController.extend("loyolabdn.controller.StudentTableView", {
