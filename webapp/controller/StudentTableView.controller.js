@@ -33,7 +33,7 @@ sap.ui.define([
 				},
 
 				Address: function (oContext) {
-					var Class = oContext.getProperty("Address");
+					var Address = oContext.getProperty("Address");
 					return {
 						key: Address,
 						text: Address
