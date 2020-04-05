@@ -25,7 +25,7 @@ sap.ui.define([
 
 			this.mGroupFunctions = {
 				Class: function (oContext) {
-					var name = oContext.getProperty("SupplierName");
+					var Class = oContext.getProperty("SupplierName");
 					return {
 						key: Class,
 						text: Class
@@ -76,6 +76,7 @@ sap.ui.define([
 			});
 
 			var oTable = this.byId("idProductsTable");
+			oTable.setAlternateRowColors(true);
 			oTable.setModel(oModel);
 			oTable.bindAggregation("columns", "/columnNames", oTemplate);
 			var oItemTemplate = new ColumnListItem();
