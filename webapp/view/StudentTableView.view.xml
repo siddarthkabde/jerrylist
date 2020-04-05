@@ -12,7 +12,7 @@
 					<Button id="_IDEGen_button3" tooltip="View Group Settings" icon="sap-icon://group-2" press="handleGroupButtonPressed"/>
 					<!--<SearchField id="idSearch2" placeholder="Adm No" width="15%" liveChange="onlivechange"/>-->
 					<Button id="_IDEGen_button4" press="onPrint" text="Print" icon="sap-icon://print" type="Emphasized"/>
-					<Button id="_IDEGen_button5" press="onPrint" text="Print Table" data:targetId="table" icon="sap-icon://print"/>
+					<!--<Button id="_IDEGen_button5" press="onPrint" text="Print Table" data:targetId="table" icon="sap-icon://print"/>-->
 				</Toolbar>
 			</headerToolbar>
 			<infoToolbar>
