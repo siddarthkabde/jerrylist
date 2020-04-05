@@ -25,7 +25,7 @@ sap.ui.define([
 
 			this.mGroupFunctions = {
 				Class: function (oContext) {
-					var Class = oContext.getProperty("SupplierName");
+					var Class = oContext.getProperty("Class");
 					return {
 						key: Class,
 						text: Class
