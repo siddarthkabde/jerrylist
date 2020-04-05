@@ -31,6 +31,15 @@ sap.ui.define([
 						text: Class
 					};
 				},
+
+				Address: function (oContext) {
+					var Class = oContext.getProperty("Address");
+					return {
+						key: Address,
+						text: Address
+					};
+				},
+
 				Price: function (oContext) {
 					var price = oContext.getProperty("Price");
 					var currencyCode = oContext.getProperty("CurrencyCode");

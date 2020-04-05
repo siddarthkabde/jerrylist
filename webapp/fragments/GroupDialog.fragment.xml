@@ -6,6 +6,7 @@
 		<groupItems>
 			<ViewSettingsItem id="_IDEGen_viewsettingsitem0" text="Class" key="Class" />
 			<ViewSettingsItem id="_IDEGen_viewsettingsitem1" text="Address" key="Address" />
+			<ViewSettingsItem id="_IDEGen_viewsettingsitem2" text="Price" key="Price" />
 		</groupItems>
 	</ViewSettingsDialog>
 	
