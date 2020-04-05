@@ -19,6 +19,21 @@
 				</OverflowToolbar>
 			</infoToolbar>
 		</Table>
+		<footer>
+        <Toolbar id="_IDEGen_toolbar1">
+          <ToolbarSpacer id="_IDEGen_toolbarspacer1" />
+          <Button id="_IDEGen_button4"
+            press="onPrint"
+            text="Print"
+            icon="sap-icon://print"
+            type="Emphasized" />
+          <Button id="_IDEGen_button5"
+            press="onPrint"
+            text="Print Table"
+            data:targetId="table"
+            icon="sap-icon://print"/>
+        </Toolbar>
+      </footer>
 		
 		<!--<Table id="idTable" inset="false" items="{/}" alternateRowColors="true">-->
 		<!--	<headerToolbar>-->
