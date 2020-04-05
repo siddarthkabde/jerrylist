@@ -416,7 +416,7 @@ sap.ui.define([
 				// apply the selected group settings
 				oBinding.sort(aGroups);
 				
-				else{
+				} else{
 					
 				oTable.getModel().refresh(true);
 				}
