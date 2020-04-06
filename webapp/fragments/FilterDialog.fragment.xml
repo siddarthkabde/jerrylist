@@ -1,27 +1,27 @@
 <core:FragmentDefinition
 	xmlns="sap.m"
 	xmlns:core="sap.ui.core">
-	<ViewSettingsDialog
+	<ViewSettingsDialog id="_IDEGen_viewsettingsdialog0"
 		confirm="handleFilterDialogConfirm">
 		<filterItems>
-			<ViewSettingsFilterItem
+			<ViewSettingsFilterItem id="_IDEGen_viewsettingsfilteritem0"
 				text="Weight"
 				key="WeightMeasure"
 				multiSelect="false">
 				<items>
-					<ViewSettingsItem text="Less than 1000" key="WeightMeasure___LE___1000___X" />
-					<ViewSettingsItem text="Between 1000 and 2000" key="WeightMeasure___BT___1000___2000" />
-					<ViewSettingsItem text="More Than 2000" key="WeightMeasure___GT___2000___X" />
+					<ViewSettingsItem id="_IDEGen_viewsettingsitem0" text="Less than 1000" key="WeightMeasure___LE___1000___X" />
+					<ViewSettingsItem id="_IDEGen_viewsettingsitem1" text="Between 1000 and 2000" key="WeightMeasure___BT___1000___2000" />
+					<ViewSettingsItem id="_IDEGen_viewsettingsitem2" text="More Than 2000" key="WeightMeasure___GT___2000___X" />
 				</items>
 			</ViewSettingsFilterItem>
-			<ViewSettingsFilterItem
+			<ViewSettingsFilterItem id="_IDEGen_viewsettingsfilteritem1"
 				text="Price"
 				key="Price"
 				multiSelect="false">
 				<items>
-					<ViewSettingsItem text="Less Than 100" key="Price___LE___100___X" />
-					<ViewSettingsItem text="Between 100 and 1000" key="Price___BT___100___1000" />
-					<ViewSettingsItem text="More Than 1000" key="Price___GT___1000___X" />
+					<ViewSettingsItem id="_IDEGen_viewsettingsitem3" text="Less Than 100" key="Price___LE___100___X" />
+					<ViewSettingsItem id="_IDEGen_viewsettingsitem4" text="Between 100 and 1000" key="Price___BT___100___1000" />
+					<ViewSettingsItem id="_IDEGen_viewsettingsitem5" text="More Than 1000" key="Price___GT___1000___X" />
 				</items>
 			</ViewSettingsFilterItem>
 		</filterItems>
