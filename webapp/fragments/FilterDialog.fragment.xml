@@ -3,7 +3,7 @@
 		<filterItems>
 			<ViewSettingsFilterItem id="_IDEGen_viewsettingsfilteritem0" key="keyArea" text="Area" multiSelect="false" items="{path: '/BusAreaFilterSet'}">
 				<items>
-					<ViewSettingsItem id="_IDEGen_viewsettingsitem0" key="{BusArea}" text="{BusArea}"/>
+					<ViewSettingsItem id="_IDEGen_viewsettingsitem0" key="{index}" text="{index}"/>
 				</items>
 			</ViewSettingsFilterItem>
 		</filterItems>
