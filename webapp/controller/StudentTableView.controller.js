@@ -400,8 +400,7 @@ sap.ui.define([
 										index: 3,
 										level: "Success",
 										description: "Jun 25 12:20:47 pc1h kernel: lp0 on fire"
-									}
-									``
+									}]
 								};
 
 								oModel.setData(data);
