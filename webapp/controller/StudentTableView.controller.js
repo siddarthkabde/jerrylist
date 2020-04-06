@@ -320,9 +320,9 @@ sap.ui.define([
 
 		},
 
-		NavigateToStudentDetails: function (oEvent) {
-			alert('Triggering');
-		},
+		// NavigateToStudentDetails: function (oEvent) {
+		// 	alert('Triggering');
+		// },
 
 		onPersoButtonPressed: function (oEvent) {
 			this.oTPC.openDialog();
