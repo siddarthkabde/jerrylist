@@ -383,11 +383,16 @@ sap.ui.define([
 			// this.createViewSettingsDialog("loyolabdn.fragments.GroupDialog").open();
 			var oDialog = this.createViewSettingsDialog("loyolabdn.fragments.GroupDialog");
 			var oModel = new JSONModel();
-			oModel.setData([{
-				BusArea: "1234"
-			} {
-				BusArea: "5678"
-			}]);
+
+			var data = {
+				[{
+					BusArea: "1234"
+				} {
+					BusArea: "5678"
+				}]
+			}
+
+			oModel.setData(data);
 
 			oDialog.setModel(oModel);
 			oDialog.open();
