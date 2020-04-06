@@ -383,6 +383,10 @@ sap.ui.define([
 			this.createViewSettingsDialog("loyolabdn.fragments.GroupDialog").open();
 		},
 
+		handleFilterButtonPressed: function () {
+			this.createViewSettingsDialog("loyolabdn.fragments.FilterDialog").open();
+		},
+
 		handleSortDialogConfirm: function (oEvent) {
 			var oTable = this.byId("idProductsTable"),
 				mParams = oEvent.getParameters(),
@@ -421,6 +425,30 @@ sap.ui.define([
 				oTable.getModel().refresh(true);
 			}
 
+		},
+
+		handleFilterDialogConfirm: function (oEvent) {
+			var oTable = this.byId("idProductsTable"),
+				mParams = oEvent.getParameters(),
+				oBinding = oTable.getBinding("items"),
+				aFilters = [];
+
+			mParams.filterItems.forEach(function (oItem) {
+				var aSplit = oItem.getKey().split("___"),
+					sPath = aSplit[0],
+					sOperator = aSplit[1],
+					sValue1 = aSplit[2],
+					sValue2 = aSplit[3],
+					oFilter = new Filter(sPath, sOperator, sValue1, sValue2);
+				aFilters.push(oFilter);
+			});
+
+			// apply filter settings
+			oBinding.filter(aFilters);
+
+			// update filter bar
+			this.byId("vsdFilterBar").setVisible(aFilters.length > 0);
+			this.byId("vsdFilterLabel").setText(mParams.filterString);
 		},
 
 		onPrint: function (oEvent) {

@@ -348,7 +348,6 @@ sap.ui.define([
 				aGroups.push(new Sorter(sPath, bDescending, vGroup));
 				// apply the selected group settings
 				oBinding.sort(aGroups);
-				
 			}
 		}
 
