@@ -380,7 +380,17 @@ sap.ui.define([
 
 		// Group Settings Implementation. 
 		handleGroupButtonPressed: function () {
-			this.createViewSettingsDialog("loyolabdn.fragments.GroupDialog").open();
+			// this.createViewSettingsDialog("loyolabdn.fragments.GroupDialog").open();
+			var oDialog = this.createViewSettingsDialog("loyolabdn.fragments.GroupDialog");
+			var oModel = new JSONModel();
+			oModel.setData([{
+				BusArea: "1234"
+			} {
+				BusArea: "5678"
+			}]);
+
+			oDialog.setModel(oModel);
+			oDialog.open();
 		},
 
 		handleFilterButtonPressed: function () {
