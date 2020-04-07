@@ -65,6 +65,17 @@ sap.ui.define([
 			var oModel = new sap.ui.model.json.JSONModel();
 			oModel.loadData("/products/test", {}, false);
 			var oFinalResult = oModel.getData();
+			
+// Filter the array. 			
+			var flags = {};
+			var newPlaces = oFinalResult.filter(function (entry) {
+				if (flags[entry.Class]) {
+					return false;
+				}
+				flags[entry.class] = true;
+				return true;
+			});
+
 			oModel.setProperty("/", oFinalResult);
 			var oModelData = oModel.getProperty("/");
 
