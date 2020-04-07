@@ -76,7 +76,7 @@ sap.ui.define([
 				}
 				flags[entry.Class] = true;
 				oClassFilter.push({
-					Name: entry.Class
+					Name: entry.Class,
 					Key: entry.Class
 				});
 				return true;
