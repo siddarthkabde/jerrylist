@@ -1,7 +1,7 @@
 <core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
 	<ViewSettingsDialog confirm="handleFilterDialogConfirm">
 		<filterItems>
-			<ViewSettingsFilterItem text="Class" key="Class" multiSelect="true" items="/Class}">
+			<ViewSettingsFilterItem text="Class" key="Class" multiSelect="true" items="/Class/0}">
 				<items>
 					<ViewSettingsItem key="{key}" text="{text}"></ViewSettingsItem>
 				</items>
