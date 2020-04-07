@@ -1,12 +1,35 @@
-<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
-	<ViewSettingsDialog confirm="handleFilterDialogConfirm">
-		<filterItems>
-			<ViewSettingsFilterItem key="keyArea" text="Area" multiSelect="true" items="{path: '/data'}">
-				<items>
-					<ViewSettingsItem  key="{index}" text="{index}"/>
-				</items>
-			</ViewSettingsFilterItem>
-		</filterItems>
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core">
+    <ViewSettingsDialog
+        confirm="onSetFilter"
+        filterItems="{/invoices}">
+        <filterItems>
+            <ViewSettingsFilterItem
+                text="{invoiceid}"
+                key="{businessArea}">
+            </ViewSettingsFilterItem>
+        </filterItems>
+    </ViewSettingsDialog>
+</core:FragmentDefinition>
+
+
+
+
+
+
+
+
+
+<!--<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">-->
+<!--	<ViewSettingsDialog confirm="handleFilterDialogConfirm">-->
+<!--		<filterItems>-->
+<!--			<ViewSettingsFilterItem key="keyArea" text="Area" multiSelect="true" items="{path: '/data'}">-->
+<!--				<items>-->
+<!--					<ViewSettingsItem  key="{index}" text="{index}"/>-->
+<!--				</items>-->
+<!--			</ViewSettingsFilterItem>-->
+<!--		</filterItems>-->
 		<!--<filterItems>-->
 		<!--	<ViewSettingsFilterItem id="_IDEGen_viewsettingsfilteritem0" text="Class" key="Class" multiSelect="true">-->
 		<!--items="{ path: '/' }"-->
@@ -24,5 +47,5 @@
 		<!--	</items>-->
 		<!--</ViewSettingsFilterItem>-->
 		<!--</filterItems>-->
-	</ViewSettingsDialog>
-</core:FragmentDefinition>
+<!--	</ViewSettingsDialog>-->
+<!--</core:FragmentDefinition>-->
