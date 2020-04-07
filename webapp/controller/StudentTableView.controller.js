@@ -72,7 +72,7 @@ sap.ui.define([
 			var flags = {};
 			// var oClassFilter = [];
 			var newPlaces = oFinalResult.filter(function (entry) {
-				if (flags[entry.Class]) {
+				if (entry.Class) {
 					oClassFilter.push({
 						Name: entry.Class,
 						Key: entry.Class
@@ -423,12 +423,12 @@ sap.ui.define([
 				invoiceid: 3,
 				businessArea: "test 3"
 			}];
-			oModel.setData(oClassFilter);
+			oModel.setData(data);
 			oDialog.setModel(oModel, "Class");
 			
 			var oModel1 = new JSONModel();
 			
-			oModel1.setData(oAddressFilter);
+			oModel1.setData(data);
 			oDialog.setModel(oModel1, "Address")
 
 			oDialog.open();
