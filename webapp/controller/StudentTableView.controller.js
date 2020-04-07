@@ -387,7 +387,7 @@ sap.ui.define([
 		handleFilterButtonPressed: function () {
 			var oDialog = this.createViewSettingsDialog("loyolabdn.fragments.FilterDialog");
 			var oModel = new JSONModel();
-			data = {
+			var data = {
 				invoices: [{
 					invoiceid: 1,
 					businessArea: 1
@@ -396,7 +396,14 @@ sap.ui.define([
 					businessArea: 2
 				}, {
 					invoiceid: 3,
-					businessArea: 3
+					businessArea: 1
+				}],
+				businessAreas: [{
+					businessAreaName: "Business 1"
+					businessArea: 1
+				}, {
+					businessAreaName: "Business 2"
+					businessArea: 2
 				}]
 			};
 			oModel.setData(data);
