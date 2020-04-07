@@ -1,3 +1,4 @@
+var oClassFilter = [];
 sap.ui.define([
 	"./BaseController",
 	"sap/ui/model/Filter",
@@ -68,11 +69,16 @@ sap.ui.define([
 			
 // Filter the array. 			
 			var flags = {};
+			// var oClassFilter = [];
 			var newPlaces = oFinalResult.filter(function (entry) {
 				if (flags[entry.Class]) {
 					return false;
 				}
-				flags[entry.class] = true;
+				flags[entry.Class] = true;
+				oClassFilter.push({
+					Name: entry.Class
+					Key: entry.Class
+				});
 				return true;
 			});
 
