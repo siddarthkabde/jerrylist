@@ -1,4 +1,5 @@
 var oClassFilter = [];
+var oAddressFilter = [];
 sap.ui.define([
 	"./BaseController",
 	"sap/ui/model/Filter",
@@ -66,20 +67,28 @@ sap.ui.define([
 			var oModel = new sap.ui.model.json.JSONModel();
 			oModel.loadData("/products/test", {}, false);
 			var oFinalResult = oModel.getData();
-			
-// Filter the array. 			
+
+			// Filter the array. 			
 			var flags = {};
 			// var oClassFilter = [];
 			var newPlaces = oFinalResult.filter(function (entry) {
 				if (flags[entry.Class]) {
-					return false;
+					oClassFilter.push({
+						Name: entry.Class,
+						Key: entry.Class
+					});
+					// return false;
+				};
+
+				if (flags[entry.Address]) {
+					oAddressFilter.push({
+						Name: entry.Address,
+						Key: entry.Address
+					});
+					// return false;
 				}
-				flags[entry.Class] = true;
-				oClassFilter.push({
-					Name: entry.Class,
-					Key: entry.Class
-				});
-				return true;
+				// flags[entry.Class] = true;
+
 			});
 
 			oModel.setProperty("/", oFinalResult);
@@ -415,7 +424,12 @@ sap.ui.define([
 				businessArea: "test 3"
 			}];
 			oModel.setData(oClassFilter);
-			oDialog.setModel(oModel);
+			oDialog.setModel(oModel, "Class");
+			
+			var oModel1 = new JSONModel();
+			
+			oModel1.setData(oAddressFilter);
+			oDialog.setModel(oModel1, "Address")
 
 			oDialog.open();
 		},
