@@ -1,9 +1,9 @@
 <core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
 	<ViewSettingsDialog id="_IDEGen_viewsettingsdialog0" confirm="handleFilterDialogConfirm">
 		<filterItems>
-			<ViewSettingsFilterItem id="_IDEGen_viewsettingsfilteritem0" key="keyArea" text="Area" multiSelect="false" items="{path: '/data'}">
+			<ViewSettingsFilterItem key="keyArea" text="Area" multiSelect="true" items="{path: '/data'}">
 				<items>
-					<ViewSettingsItem id="_IDEGen_viewsettingsitem0" key="{index}" text="{index}"/>
+					<ViewSettingsItem  key="{index}" text="{index}"/>
 				</items>
 			</ViewSettingsFilterItem>
 		</filterItems>
