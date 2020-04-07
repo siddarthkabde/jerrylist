@@ -381,32 +381,7 @@ sap.ui.define([
 					// Group Settings Implementation. 
 					handleGroupButtonPressed: function () {
 						// this.createViewSettingsDialog("loyolabdn.fragments.GroupDialog").open();
-						var oDialog = this.createViewSettingsDialog("loyolabdn.fragments.GroupDialog");
-						var oModel = new JSONModel();
-						var dataObject = {
-								data: [{
-										index: 0,
-										level: "Warning",
-										description: "HAL: I'm sorry, Dave. I'm afraid I can't do that."
-									}, {
-										index: 1,
-										level: "Warning",
-										description: "Windows Boot Manager has encountered a problem."
-									}, {
-										index: 2,
-										level: "Error",
-										description: "Failwhale: Twitter is over capacity"
-									}, {
-										index: 3,
-										level: "Success",
-										description: "Jun 25 12:20:47 pc1h kernel: lp0 on fire"
-									}]
-								};
 
-								oModel.setData(dataObject);
-
-								oDialog.setModel(oModel);
-								oDialog.open();
 							},
 
 							handleFilterButtonPressed: function () {
