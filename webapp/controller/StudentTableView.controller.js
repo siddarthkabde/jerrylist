@@ -389,13 +389,13 @@ sap.ui.define([
 			var oModel = new JSONModel();
 			var data = [{
 				invoiceid: 1,
-				businessArea: 1
+				businessArea: "test 1"
 			}, {
 				invoiceid: 2,
-				businessArea: 2
+				businessArea: "test 2"
 			}, {
 				invoiceid: 3,
-				businessArea: 1
+				businessArea: "test 3"
 			}];
 			oModel.setData(data);
 			oDialog.setModel(oModel);
