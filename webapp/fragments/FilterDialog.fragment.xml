@@ -3,12 +3,12 @@
 		<filterItems>
 			<ViewSettingsFilterItem text="Class" key="Class" multiSelect="true" items="{Class>/}">
 				<items>
-					<ViewSettingsItem key="{invoiceid}" text="{businessArea}"></ViewSettingsItem>
+					<ViewSettingsItem key="{Class>/invoiceid}" text="{Class>/businessArea}"></ViewSettingsItem>
 				</items>
 			</ViewSettingsFilterItem>
-			<ViewSettingsFilterItem text="Address" key="Address" multiSelect="true" items="{oModel1>/Address}">
+			<ViewSettingsFilterItem text="Address" key="Address" multiSelect="true" items="{Address>/}">
 				<items>
-					<ViewSettingsItem key="{oModel1>key}" text="{oModel1>text}"></ViewSettingsItem>
+					<ViewSettingsItem key="{Address>/invoiceid}" text="{Class>/text}"></ViewSettingsItem>
 				</items>
 			</ViewSettingsFilterItem>
 			<ViewSettingsFilterItem text="Price" key="Price" multiSelect="false">
