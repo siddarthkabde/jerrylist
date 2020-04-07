@@ -403,7 +403,7 @@ sap.ui.define([
 									}]
 								};
 
-								oModel.setData(data);
+								oModel.setData(dataObject);
 
 								oDialog.setModel(oModel);
 								oDialog.open();
