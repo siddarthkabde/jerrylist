@@ -3,7 +3,7 @@
 		<filterItems>
 			<ViewSettingsFilterItem text="Weight" key="WeightMeasure" multiSelect="true">
 				<items>
-					<ViewSettingsItem key="{/invoiceid}" text="{/businessArea}"></ViewSettingsItem>
+					<ViewSettingsItem key="{invoiceid}" text="{businessArea}"></ViewSettingsItem>
 				</items>
 			</ViewSettingsFilterItem>
 			<ViewSettingsFilterItem text="Price" key="Price" multiSelect="false">
