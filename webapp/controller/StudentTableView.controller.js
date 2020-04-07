@@ -414,7 +414,7 @@ sap.ui.define([
 				invoiceid: 3,
 				businessArea: "test 3"
 			}];
-			oModel.setData(data);
+			oModel.setData(oClassFilter);
 			oDialog.setModel(oModel);
 
 			oDialog.open();

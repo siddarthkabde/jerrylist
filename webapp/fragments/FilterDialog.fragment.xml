@@ -4,7 +4,7 @@
 			<ViewSettingsFilterItem text="Class" key="Class" multiSelect="true"
 			items="{/}">
 				<items>
-					<ViewSettingsItem key="{invoiceid}" text="{businessArea}"></ViewSettingsItem>
+					<ViewSettingsItem key="{Class}" text="{Class}"></ViewSettingsItem>
 				</items>
 			</ViewSettingsFilterItem>
 			<ViewSettingsFilterItem text="Price" key="Price" multiSelect="false">
