@@ -6,7 +6,7 @@
 					<ViewSettingsItem key="{Class>/0/invoiceid}" text="{Class>/0/businessArea}"></ViewSettingsItem>
 				</items>
 			</ViewSettingsFilterItem>
-			<ViewSettingsFilterItem text="AddressText" key="AddressKey" multiSelect="true" items="{/Address}">
+			<ViewSettingsFilterItem text="AddressText" key="AddressKey" multiSelect="true" items="{/Address>/}">
 				<items>
 					<ViewSettingsItem key="{invoiceid}" text="{businessArea}"></ViewSettingsItem>
 				</items>
