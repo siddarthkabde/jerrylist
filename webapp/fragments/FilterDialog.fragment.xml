@@ -1,14 +1,14 @@
 <core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
 	<ViewSettingsDialog confirm="handleFilterDialogConfirm">
 		<filterItems>
-			<ViewSettingsFilterItem text="Class" key="Class" multiSelect="true" items="{Class>/}">
+			<ViewSettingsFilterItem text="Class" key="Class" multiSelect="true" items="{Class>/0}">
 				<items>
 					<ViewSettingsItem key="{Class>/invoiceid}" text="{Class>/businessArea}"></ViewSettingsItem>
 				</items>
 			</ViewSettingsFilterItem>
-			<ViewSettingsFilterItem text="Address" key="Address" multiSelect="true" items="{Address>/}">
+			<ViewSettingsFilterItem text="Address" key="Address" multiSelect="true" items="{Address>/0}">
 				<items>
-					<ViewSettingsItem key="{Address>/invoiceid}" text="{Address>/businessArea}"></ViewSettingsItem>
+					<ViewSettingsItem key="{Address>/0/invoiceid}" text="{Address>/0/businessArea}"></ViewSettingsItem>
 				</items>
 			</ViewSettingsFilterItem>
 			<ViewSettingsFilterItem text="Price" key="Price" multiSelect="false">
