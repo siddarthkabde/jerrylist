@@ -8,7 +8,7 @@
 			</ViewSettingsFilterItem>
 			<ViewSettingsFilterItem text="Address" key="Address" multiSelect="true" items="{Address>/}">
 				<items>
-					<ViewSettingsItem key="{Address>/1/invoiceid}" text="{Address>/1/businessArea}"></ViewSettingsItem>
+					<ViewSettingsItem key="{invoiceid}" text="{businessArea}"></ViewSettingsItem>
 				</items>
 			</ViewSettingsFilterItem>
 			<ViewSettingsFilterItem text="Price" key="Price" multiSelect="false">
