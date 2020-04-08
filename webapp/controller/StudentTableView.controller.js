@@ -438,7 +438,7 @@ sap.ui.define([
 				businessArea: "test 6"
 			}];
 
-			oModel1.setData(data);
+			oModel1.setData(data1);
 			oDialog.setModel(oModel1, "Address");
 
 			oDialog.open();
