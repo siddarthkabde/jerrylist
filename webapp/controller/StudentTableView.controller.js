@@ -425,10 +425,20 @@ sap.ui.define([
 			}];
 			oModel.setData(data);
 			oDialog.setModel(oModel, "Class");
-			
+
 			var oModel1 = new JSONModel();
-			
-			oModel1.setData(data);
+			var data1 = [{
+				invoiceid: 4,
+				businessArea: "test 4"
+			}, {
+				invoiceid: 5,
+				businessArea: "test 5"
+			}, {
+				invoiceid: 6,
+				businessArea: "test 6"
+			}];
+
+			oModel1.setData(data1);
 			oDialog.setModel(oModel1, "Address")
 
 			oDialog.open();
