@@ -423,8 +423,8 @@ sap.ui.define([
 				invoiceid: 3,
 				businessArea: "test 3"
 			}];
-			oModel.setData(data, "Class");
-			oDialog.setModel(oModel);
+			oModel.setData(data);
+			oDialog.setModel(oModel, "Class");
 
 			var oModel1 = new JSONModel();
 			var data1 =  [{
@@ -438,8 +438,8 @@ sap.ui.define([
 				businessArea: "test 6"
 			}];
 
-			oModel1.setData(data1, "Address");
-			oDialog.setModel(oModel1)
+			oModel1.setData(data);
+			oDialog.setModel(oModel1, "Address");
 
 			oDialog.open();
 		},
