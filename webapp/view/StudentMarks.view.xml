@@ -1,0 +1,16 @@
+<mvc:View controllerName="loyolabdn.controller.StudentMarks" xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:l="sap.ui.layout"
+	xmlns:core="sap.ui.core">
+	<Page id="employeeMarksPage" title="Student Marks" showNavButton="true" navButtonPress="onNavBack" class="sapUiResponsiveContentPadding">
+		<l:VerticalLayout id="_IDEGen_verticallayout0" class="sapUiContentPadding" width="100%">
+			<l:content>
+				<Label id="_IDEGen_label0" text="Product" labelFor="productInput"/>
+				<Input id="productInput" type="Text" placeholder="Search Anything ..." showSuggestion="true" showValueHelp="true"
+					valueHelpRequest="handleValueHelp" suggestionItems="{/ProductCollection}">
+					<suggestionItems>
+						<core:Item id="_IDEGen_item0" text="{Name}"/>
+					</suggestionItems>
+				</Input>
+			</l:content>
+		</l:VerticalLayout>
+	</Page>
+</mvc:View>

@@ -1,0 +1,13 @@
+{
+	"TileCollection": [{
+		"icon": "hint",
+		"type": "Monitor",
+		"title": "Student Master Data"
+	}, {
+		"icon": "inbox",
+		"number": "89",
+		"title": "Upload File",
+		"info": "Overdue",
+		"infoState": "Error"
+	}]
+}

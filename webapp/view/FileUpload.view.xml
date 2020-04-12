@@ -1,0 +1,21 @@
+<mvc:View controllerName="loyolabdn.controller.FileUpload" displayBlock="true" xmlns="sap.m" xmlns:l="sap.ui.layout.form" xmlns:u="sap.ui.unified"
+	xmlns:mvc="sap.ui.core.mvc">
+	<App id="_IDEGen_app0">
+		<pages>
+			<Page id="_IDEGen_page0" title="Loyola Public School - Please upload file" showNavButton="true" navButtonPress="onNavBack">
+				<content>
+					<l:SimpleForm id="_IDEGen_simpleform0" editable="true">
+						<l:content>
+							<Label id="_IDEGen_label0" text="File Name"></Label>
+							<VBox id="_IDEGen_vbox0">
+								<u:FileUploader id="fileUploader" name="myFileUpload" uploadUrl="upload/" tooltip="Upload your file to the local server"
+									uploadComplete="handleUploadComplete" change="FileChange"/>
+								<Button id="_IDEGen_button0" text="Upload File" press="handleUploadPress"/>
+							</VBox>
+						</l:content>
+					</l:SimpleForm>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>
